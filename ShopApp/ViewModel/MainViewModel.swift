@@ -1,11 +1,9 @@
-//
-//  MainViewModel.swift
-//  ShopApp
-//
-//  Created by Искандер Ситдиков on 21.08.2023.
-//
-
 import Foundation
+
+protocol ProductProtocol {
+    func fetchProduct()
+    
+}
 
 class MainViewModel {
     

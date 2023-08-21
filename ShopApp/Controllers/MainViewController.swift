@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  ShopApp
-//
-//  Created by Искандер Ситдиков on 20.08.2023.
-//
-
 import UIKit
 
 class MainViewController: UIViewController {
@@ -19,7 +12,7 @@ class MainViewController: UIViewController {
         view.backgroundColor = .white
     }
     
-    // MARK: setupTableView
+    // MARK: - SetupTableView
     private func setupTableView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +37,7 @@ class MainViewController: UIViewController {
     }
 }
 
-// MARK: TableViewDelegate
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {

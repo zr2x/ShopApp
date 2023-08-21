@@ -1,21 +1,14 @@
-//
-//  Product.swift
-//  ShopApp
-//
-//  Created by Искандер Ситдиков on 20.08.2023.
-//
-
 import Foundation
 
 struct Product {
-    let product: ProductInfo
+    let productInfo: ProductInfo
 }
 
 struct ProductInfo {
     let image: String
     let name: String
     let id: Int
-    let price: Int
+    let price: String
     let deliveryInfo: String
     let descriptionInfo: DescriptionInfo
 }
