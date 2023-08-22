@@ -16,6 +16,7 @@
 		C06FB3EF2A936AE100ADB7C9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB3EE2A936AE100ADB7C9 /* MainViewModel.swift */; };
 		C06FB3F12A938EEA00ADB7C9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB3F02A938EEA00ADB7C9 /* Category.swift */; };
 		C06FB3F32A93AE6900ADB7C9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB3F22A93AE6900ADB7C9 /* MainTableViewCell.swift */; };
+		C06FB3F62A94D09600ADB7C9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB3F52A94D09600ADB7C9 /* AppCoordinator.swift */; };
 		C726A442AFD011FB0A3B2417 /* Pods_ShopApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84946356C5D44C096CCD806D /* Pods_ShopApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		C06FB3EE2A936AE100ADB7C9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		C06FB3F02A938EEA00ADB7C9 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		C06FB3F22A93AE6900ADB7C9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		C06FB3F52A94D09600ADB7C9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				C013998C2A922E400056F020 /* Application */,
+				C06FB3F42A94D06F00ADB7C9 /* Coordinators */,
 				C01399932A9241BE0056F020 /* Controllers */,
 				C01399922A9241B70056F020 /* ViewModel */,
 				C01399912A9241A80056F020 /* Extension */,
@@ -146,6 +149,14 @@
 				C06FB3F22A93AE6900ADB7C9 /* MainTableViewCell.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C06FB3F42A94D06F00ADB7C9 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				C06FB3F52A94D09600ADB7C9 /* AppCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +278,7 @@
 				C013997B2A91F4AC0056F020 /* MainViewController.swift in Sources */,
 				C01399902A92312B0056F020 /* Product.swift in Sources */,
 				C06FB3F32A93AE6900ADB7C9 /* MainTableViewCell.swift in Sources */,
+				C06FB3F62A94D09600ADB7C9 /* AppCoordinator.swift in Sources */,
 				C01399772A91F4AC0056F020 /* AppDelegate.swift in Sources */,
 				C01399792A91F4AC0056F020 /* SceneDelegate.swift in Sources */,
 				C06FB3F12A938EEA00ADB7C9 /* Category.swift in Sources */,
