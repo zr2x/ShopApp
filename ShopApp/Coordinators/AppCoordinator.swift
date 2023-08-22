@@ -15,7 +15,10 @@ class AppCoordinator: Coordinator {
     
     func start() {
         
+        let mainViewController = MainViewController()
+        let mainViewModel = MainViewModel()
+        mainViewModel.appCoordinator = self
+        mainViewController.viewModel = mainViewModel
+        navigationController.show(mainViewController, sender: self)
     }
-    
-    
 }

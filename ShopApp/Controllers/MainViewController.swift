@@ -2,7 +2,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var mainViewModel: MainViewModel = MainViewModel()
+    var viewModel: MainViewModel = MainViewModel()
     
     private let tableView = UITableView()
 
@@ -41,16 +41,17 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        mainViewModel.numberOfSection()
+        viewModel.numberOfSection()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mainViewModel.numberOfRow(in: section)
+        return viewModel.numberOfRow(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "\(indexPath.row)"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainTableViewCell else { return UITableViewCell()}
+        // TODO: fix unwrap
+        cell.configureViews(product: viewModel.product!)
         return cell
     }
 }

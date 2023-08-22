@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C01399772A91F4AC0056F020 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01399762A91F4AC0056F020 /* AppDelegate.swift */; };
-		C01399792A91F4AC0056F020 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01399782A91F4AC0056F020 /* SceneDelegate.swift */; };
 		C013997B2A91F4AC0056F020 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013997A2A91F4AC0056F020 /* MainViewController.swift */; };
 		C01399802A91F4AD0056F020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C013997F2A91F4AD0056F020 /* Assets.xcassets */; };
 		C01399832A91F4AD0056F020 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01399812A91F4AD0056F020 /* LaunchScreen.storyboard */; };
@@ -26,7 +25,6 @@
 		A2D5593E88193482C2B6E2A8 /* Pods-ShopApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopApp.debug.xcconfig"; path = "Target Support Files/Pods-ShopApp/Pods-ShopApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C01399732A91F4AC0056F020 /* ShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C01399762A91F4AC0056F020 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C01399782A91F4AC0056F020 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C013997A2A91F4AC0056F020 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C013997F2A91F4AD0056F020 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C01399822A91F4AD0056F020 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				C01399762A91F4AC0056F020 /* AppDelegate.swift */,
-				C01399782A91F4AC0056F020 /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -145,8 +142,7 @@
 		C01399932A9241BE0056F020 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C013997A2A91F4AC0056F020 /* MainViewController.swift */,
-				C06FB3F22A93AE6900ADB7C9 /* MainTableViewCell.swift */,
+				C06FB3F82A94E9B700ADB7C9 /* MainViewControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -157,6 +153,15 @@
 				C06FB3F52A94D09600ADB7C9 /* AppCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		C06FB3F82A94E9B700ADB7C9 /* MainViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C013997A2A91F4AC0056F020 /* MainViewController.swift */,
+				C06FB3F22A93AE6900ADB7C9 /* MainTableViewCell.swift */,
+			);
+			name = MainViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,7 +285,6 @@
 				C06FB3F32A93AE6900ADB7C9 /* MainTableViewCell.swift in Sources */,
 				C06FB3F62A94D09600ADB7C9 /* AppCoordinator.swift in Sources */,
 				C01399772A91F4AC0056F020 /* AppDelegate.swift in Sources */,
-				C01399792A91F4AC0056F020 /* SceneDelegate.swift in Sources */,
 				C06FB3F12A938EEA00ADB7C9 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,9 +16,6 @@ class MainTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addViews()
         configureStackVIew()
-        configureProductLabel(product: "")
-        configurePriceLabel(price: "")
-        configureProductImageView(image: "")
         configureLayout()
     }
     
@@ -68,6 +65,7 @@ class MainTableViewCell: UITableViewCell {
         descriptionLabel.text = description
     }
     
+    // MARK: Layout method
     private func configureLayout() {
         
     }

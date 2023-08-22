@@ -7,6 +7,9 @@ protocol ProductProtocol {
 
 class MainViewModel {
     
+    var product: Product?
+    weak var appCoordinator: AppCoordinator?
+    
     // MARK: methods
     func numberOfSection() -> Int {
         return 5
@@ -14,6 +17,10 @@ class MainViewModel {
     
     func numberOfRow(in section: Int) -> Int {
         return 10
+    }
+    
+    func someFunc() {
+        appCoordinator?.start()
     }
     
 }
