@@ -1,26 +1,29 @@
 import Foundation
 
-protocol ProductProtocol {
+protocol MainViewModelProtocol {
     func fetchProduct()
-    
 }
 
-class MainViewModel {
-    
+class MainViewModel: MainViewModelProtocol {
+
+    // MARK: properties
     var product: Product?
     weak var appCoordinator: AppCoordinator?
     
     // MARK: methods
     func numberOfSection() -> Int {
-        return 5
+        return 2
     }
     
     func numberOfRow(in section: Int) -> Int {
-        return 10
+        return 5
     }
     
     func someFunc() {
         appCoordinator?.start()
     }
     
+    func fetchProduct() {
+        
+    }
 }

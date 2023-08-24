@@ -3,7 +3,7 @@ import UIKit
 class MainViewController: UIViewController {
     
     var viewModel: MainViewModel = MainViewModel()
-    
+    weak var coordinator: AppCoordinator?
     private let tableView = UITableView()
 
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
     }
     
     private func registerCell() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.cellReuseIdentifire)
     }
     
     private func constraintsTableView() {
@@ -49,9 +49,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainTableViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.cellReuseIdentifire, for: indexPath) as? MainTableViewCell else { return UITableViewCell()}
         // TODO: fix unwrap
-        cell.configureViews(product: viewModel.product!)
+//        cell.configureViews(product: viewModel.product!)
+        cell.textLabel?.text = "\(indexPath.row)"
         return cell
     }
 }

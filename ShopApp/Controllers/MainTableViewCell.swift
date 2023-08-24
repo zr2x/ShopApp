@@ -2,6 +2,8 @@ import UIKit
 
 class MainTableViewCell: UITableViewCell {
     
+    static let cellReuseIdentifire = "MainTableViewCell"
+    
     // MARK: - UI Components
     
     private var productImageView = UIImageView()
@@ -12,16 +14,16 @@ class MainTableViewCell: UITableViewCell {
     private var stackView = UIStackView()
     
     // MARK: - Init
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addViews()
-        configureStackVIew()
-        configureLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+//        super.init(style: style, reuseIdentifier: reuseIdentifier)
+//        addViews()
+//        configureStackVIew()
+//        configureLayout()
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     func configureViews(product: Product) {
         configureProductLabel(product: product.productInfo.name)
@@ -67,6 +69,11 @@ class MainTableViewCell: UITableViewCell {
     
     // MARK: Layout method
     private func configureLayout() {
-        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
+            stackView.rightAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor)
+        ])
     }
 }
