@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
     private func setupTableView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .yellow
+        tableView.backgroundColor = .red
         tableView.delegate = self
         tableView.dataSource = self
         registerCell()
@@ -50,9 +50,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.cellReuseIdentifire, for: indexPath) as? MainTableViewCell else { return UITableViewCell()}
-        // TODO: fix unwrap
-//        cell.configureViews(product: viewModel.product!)
-        cell.textLabel?.text = "\(indexPath.row)"
+        // FIXME: fix this
+        cell.configureViews(product: viewModel.product ?? Product(productInfo: ProductInfo(image: "Test", name: "Milk", id: 10, price: "300 rub", deliveryInfo: "30 august", descriptionInfo: DescriptionInfo(count: 100, information: "No info available"))))
         return cell
     }
 }

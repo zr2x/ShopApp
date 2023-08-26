@@ -26,10 +26,16 @@ class MainTableViewCell: UITableViewCell {
 //    }
     
     func configureViews(product: Product) {
+        separatorInset = UIEdgeInsets(top: 15, left: 55, bottom: 0, right: 0)
+        
+        addViews()
+        configureStackVIew()
+        
         configureProductLabel(product: product.productInfo.name)
         configurePriceLabel(price: product.productInfo.price)
         configureProductImageView(image: product.productInfo.image)
         configureDescriptionLabel(description: product.productInfo.descriptionInfo.information)
+        configureBuyButton(price: product.productInfo.price)
     }
     
     // MARK: - Private methods
@@ -40,8 +46,8 @@ class MainTableViewCell: UITableViewCell {
     
     private func configureStackVIew() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
         stackView.spacing = 2
         
         stackView.addArrangedSubview(productImageView)
@@ -67,13 +73,20 @@ class MainTableViewCell: UITableViewCell {
         descriptionLabel.text = description
     }
     
+    private func configureBuyButton(price: String) {
+        buyButton.setTitle("В корзину", for: .normal)
+        buyButton.setTitleColor(.black, for: .normal)
+    }
+    
     // MARK: Layout method
     private func configureLayout() {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor),
             stackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
-            stackView.rightAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor)
+            stackView.rightAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor),
+            stackView.heightAnchor.constraint(equalToConstant: 200),
+            stackView.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
 }
