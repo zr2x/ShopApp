@@ -27,8 +27,7 @@ class MainTableViewCell: UITableViewCell {
         
     }
     func configureViews(product: Product) {
-        separatorInset = UIEdgeInsets(top: 15, left: 55, bottom: 0, right: 0)
-        
+    
         addViews()
         configureStackVIew()
         
@@ -59,6 +58,10 @@ class MainTableViewCell: UITableViewCell {
     
     private func configureProductImageView(image: String) {
         productImageView.image = UIImage(named: image)
+        NSLayoutConstraint.activate([
+            productImageView.widthAnchor.constraint(equalToConstant: 200),
+            productImageView.heightAnchor.constraint(equalToConstant: 200)
+        ])
     }
     
     private func configureProductLabel(product: String) {

@@ -2,7 +2,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var viewModel: MainViewModel = MainViewModel()
+    var viewModel: MainViewModel = MainViewModelImp()
     weak var coordinator: AppCoordinator?
     private let tableView = UITableView()
 
@@ -12,11 +12,15 @@ class MainViewController: UIViewController {
         view.backgroundColor = .white
     }
     
+    func setupViewModel() {
+        
+    }
+    
     // MARK: - SetupTableView
     private func setupTableView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .red
+        tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
         registerCell()
@@ -41,17 +45,17 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        viewModel.numberOfSection()
+        1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRow(in: section)
+        viewModel.products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.cellReuseIdentifire, for: indexPath) as? MainTableViewCell else { return UITableViewCell()}
-        // FIXME: fix this
-        cell.configureViews(product: viewModel.product ?? Product(productInfo: ProductInfo(image: "Test", name: "Milk", id: 10, price: "300 rub", deliveryInfo: "30 august", descriptionInfo: DescriptionInfo(count: 100, information: "No info available"))))
+        let product = viewModel.products[indexPath.row]
+        cell.configureViews(product: product)
         return cell
     }
 }

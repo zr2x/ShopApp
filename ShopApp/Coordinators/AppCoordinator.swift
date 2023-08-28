@@ -1,24 +1,28 @@
 import UIKit
 
 protocol Coordinator {
-    var navigationController: UINavigationController {get set}
+    var navigationController: UINavigationController { get set }
+    var tabBarController: UITabBarController { get set }
     var isLoggedIn: Bool {get set}
     func start()
 }
 
 class AppCoordinator: Coordinator {
+    var tabBarController: UITabBarController
+    
     var isLoggedIn = false
     var navigationController: UINavigationController
     var childCoordinators = [Coordinator]()
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, tabBarController: UITabBarController) {
         self.navigationController = navigationController
+        self.tabBarController = tabBarController
     }
     
     func start() {
         
         let mainViewController = MainViewController()
-        let mainViewModel = MainViewModel()
+        let mainViewModel = MainViewModelImp()
         mainViewModel.appCoordinator = self
         mainViewController.viewModel = mainViewModel
         navigationController.show(mainViewController, sender: self)
