@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  ShopApp
-//
-//  Created by Искандер Ситдиков on 20.08.2023.
-//
-
 import UIKit
 
 @UIApplicationMain

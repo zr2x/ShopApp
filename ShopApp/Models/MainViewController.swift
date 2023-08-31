@@ -5,6 +5,7 @@ class MainViewController: UIViewController {
     var viewModel: MainViewModel = MainViewModelImp()
     weak var coordinator: AppCoordinator?
     private let tableView = UITableView()
+    var activityIndicator = UIActivityIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,6 +15,17 @@ class MainViewController: UIViewController {
     
     func setupViewModel() {
         
+        viewModel.updateData = {
+            DispatchQueue.main.async { self.tableView.reloadData() }
+        }
+        
+        viewModel.showLoading = {
+            DispatchQueue.main.async { self.activityIndicator.startAnimating() }
+        }
+        
+        viewModel.hideLoading = {
+            DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
+        }
     }
     
     // MARK: - SetupTableView
@@ -57,5 +69,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let product = viewModel.products[indexPath.row]
         cell.configureViews(product: product)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 250
     }
 }

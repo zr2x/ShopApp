@@ -11,12 +11,13 @@ class MainTableViewCell: UITableViewCell {
     private var priceLabel = UILabel()
     private var buyButton = UIButton()
     private var descriptionLabel = UILabel()
-    private var stackView = UIStackView()
     
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        contentView.backgroundColor = .systemCyan
+            addViews()
+            
     }
     
     required init?(coder: NSCoder) {
@@ -24,13 +25,48 @@ class MainTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
+        productImageView.translatesAutoresizingMaskIntoConstraints = false
+        productLabel.translatesAutoresizingMaskIntoConstraints = false
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        buyButton.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
+        productImageView.frame = CGRect(x: 5, y: 5, width: 100, height: 100)
+        productLabel.frame = CGRect(x: 5, y: 105, width: contentView.frame.size.width / 2, height: 20)
+        priceLabel.frame = CGRect(x: 5, y: 130, width: contentView.frame.size.width / 2, height: 20)
+        buyButton.frame = CGRect(x: 5, y: 155, width: contentView.frame.size.width / 2, height: 30)
+        descriptionLabel.frame = CGRect(x: 5, y: 190, width: contentView.frame.size.width / 2, height: 20)
+        
+        NSLayoutConstraint.activate([
+//            productImageView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+//            productImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
+//            productImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
+//            productImageView.widthAnchor.constraint(equalToConstant: 50),
+//            productImageView.heightAnchor.constraint(equalToConstant: 100),
+//
+//            productLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 10),
+//            productLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
+//            productLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
+//            productLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+//            priceLabel.topAnchor.constraint(equalTo: productLabel.bottomAnchor, constant: 10),
+//            priceLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
+//            priceLabel.heightAnchor.constraint(equalToConstant: 20),
+//
+//            buyButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 5),
+//            buyButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
+//            buyButton.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+//            buyButton.heightAnchor.constraint(equalToConstant: 20),
+//
+//            descriptionLabel.topAnchor.constraint(equalTo: buyButton.bottomAnchor, constant: 5),
+//            descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+//            descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
+//            descriptionLabel.heightAnchor.constraint(equalToConstant: 20)
+        ])
     }
-    func configureViews(product: Product) {
     
-        addViews()
-        configureStackVIew()
-        
+    func configureViews(product: Product) {
         configureProductLabel(product: product.productInfo.name)
         configurePriceLabel(price: product.productInfo.price)
         configureProductImageView(image: product.productInfo.image)
@@ -41,27 +77,17 @@ class MainTableViewCell: UITableViewCell {
     // MARK: - Private methods
     
     private func addViews() {
-        addSubview(stackView)
-    }
-    
-    private func configureStackVIew() {
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.distribution = .fill
-        stackView.spacing = 2
-        
-        stackView.addArrangedSubview(productImageView)
-        stackView.addArrangedSubview(productLabel)
-        stackView.addArrangedSubview(priceLabel)
-        stackView.addArrangedSubview(buyButton)
+        contentView.addSubview(productImageView)
+        contentView.addSubview(productLabel)
+        contentView.addSubview(priceLabel)
+        contentView.addSubview(buyButton)
+        contentView.addSubview(descriptionLabel)
     }
     
     private func configureProductImageView(image: String) {
         productImageView.image = UIImage(named: image)
-        NSLayoutConstraint.activate([
-            productImageView.widthAnchor.constraint(equalToConstant: 200),
-            productImageView.heightAnchor.constraint(equalToConstant: 200)
-        ])
+        productImageView.contentMode = .scaleAspectFit
+        productImageView.clipsToBounds = true
     }
     
     private func configureProductLabel(product: String) {
@@ -80,17 +106,8 @@ class MainTableViewCell: UITableViewCell {
     private func configureBuyButton(price: String) {
         buyButton.setTitle("В корзину", for: .normal)
         buyButton.setTitleColor(.black, for: .normal)
-    }
-    
-    // MARK: Layout method
-    private func configureLayout() {
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
-            stackView.rightAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor),
-            stackView.heightAnchor.constraint(equalToConstant: 200),
-            stackView.widthAnchor.constraint(equalToConstant: 200)
-        ])
+        buyButton.titleLabel?.textAlignment = .left
+        buyButton.backgroundColor = .blue
+        buyButton.layer.cornerRadius = 10
     }
 }

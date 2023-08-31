@@ -1,11 +1,21 @@
 import Foundation
 
 protocol MainViewModel {
-    func fetchProduct()
     var products: [Product] { get set }
+    var updateData: (() -> ())? { get set }
+    var showLoading: (() -> ())? { get set }
+    var hideLoading: (() -> ())? { get set }
+    
+    func fetchProduct()
+    
 }
 
 class MainViewModelImp: MainViewModel {
+    var updateData: (() -> ())?
+    var showLoading: (() -> ())?
+    var hideLoading: (() -> ())?
+    
+
 
     // MARK: properties
 //    var products = [Product]()
