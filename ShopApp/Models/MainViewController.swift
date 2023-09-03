@@ -11,11 +11,13 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         view.backgroundColor = .white
+        setupViewModel()
+        setupAtivityIndicator()
     }
     
     func setupViewModel() {
         
-        viewModel.updateData = {
+        viewModel.reloadTableView = {
             DispatchQueue.main.async { self.tableView.reloadData() }
         }
         
@@ -26,6 +28,7 @@ class MainViewController: UIViewController {
         viewModel.hideLoading = {
             DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
         }
+        viewModel.updateData()
     }
     
     // MARK: - SetupTableView
@@ -51,6 +54,17 @@ class MainViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
+    private func setupAtivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        activityIndicator.isHidden = false
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -72,6 +86,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
+        
+        return  250
     }
 }

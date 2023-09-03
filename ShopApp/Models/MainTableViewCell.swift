@@ -15,7 +15,6 @@ class MainTableViewCell: UITableViewCell {
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .systemCyan
             addViews()
             
     }
@@ -33,9 +32,9 @@ class MainTableViewCell: UITableViewCell {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         productImageView.frame = CGRect(x: 5, y: 5, width: 100, height: 100)
-        productLabel.frame = CGRect(x: 5, y: 105, width: contentView.frame.size.width / 2, height: 20)
-        priceLabel.frame = CGRect(x: 5, y: 130, width: contentView.frame.size.width / 2, height: 20)
-        buyButton.frame = CGRect(x: 5, y: 155, width: contentView.frame.size.width / 2, height: 30)
+        productLabel.frame = CGRect(x: 5, y: 110, width: contentView.frame.size.width / 2, height: 20)
+        priceLabel.frame = CGRect(x: 5, y: 135, width: contentView.frame.size.width / 2, height: 20)
+        buyButton.frame = CGRect(x: 5, y: 160, width: 100, height: 30)
         descriptionLabel.frame = CGRect(x: 5, y: 190, width: contentView.frame.size.width / 2, height: 20)
         
         NSLayoutConstraint.activate([
@@ -88,6 +87,7 @@ class MainTableViewCell: UITableViewCell {
         productImageView.image = UIImage(named: image)
         productImageView.contentMode = .scaleAspectFit
         productImageView.clipsToBounds = true
+        productImageView.layer.cornerRadius = 10
     }
     
     private func configureProductLabel(product: String) {
@@ -101,13 +101,14 @@ class MainTableViewCell: UITableViewCell {
     
     private func configureDescriptionLabel(description: String) {
         descriptionLabel.text = description
+        descriptionLabel.numberOfLines = 0
     }
     
     private func configureBuyButton(price: String) {
         buyButton.setTitle("В корзину", for: .normal)
         buyButton.setTitleColor(.black, for: .normal)
         buyButton.titleLabel?.textAlignment = .left
-        buyButton.backgroundColor = .blue
+        buyButton.backgroundColor = .white
         buyButton.layer.cornerRadius = 10
     }
 }
