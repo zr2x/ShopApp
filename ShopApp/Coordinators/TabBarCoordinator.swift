@@ -70,9 +70,4 @@ class BaseTabBarController {
     func start() {
         
     }
-
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//    }
 }

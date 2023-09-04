@@ -19,7 +19,7 @@
 		C06FB4022A974F7800ADB7C9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB4012A974F7800ADB7C9 /* ProfileViewController.swift */; };
 		C06FB4042A974F8400ADB7C9 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB4032A974F8400ADB7C9 /* FavouriteViewController.swift */; };
 		C06FB4062A974F9A00ADB7C9 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB4052A974F9A00ADB7C9 /* CartViewController.swift */; };
-		C06FB4432A9D100C00ADB7C9 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB4422A9D100C00ADB7C9 /* BaseTabBarController.swift */; };
+		C06FB4432A9D100C00ADB7C9 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB4422A9D100C00ADB7C9 /* TabBarCoordinator.swift */; };
 		C06FB4462AA0CCFF00ADB7C9 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB4452AA0CCFF00ADB7C9 /* ApiClient.swift */; };
 		C726A442AFD011FB0A3B2417 /* Pods_ShopApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84946356C5D44C096CCD806D /* Pods_ShopApp.framework */; };
 /* End PBXBuildFile section */
@@ -42,7 +42,7 @@
 		C06FB4012A974F7800ADB7C9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C06FB4032A974F8400ADB7C9 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		C06FB4052A974F9A00ADB7C9 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
-		C06FB4422A9D100C00ADB7C9 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		C06FB4422A9D100C00ADB7C9 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		C06FB4452AA0CCFF00ADB7C9 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,7 +98,7 @@
 			children = (
 				C013998C2A922E400056F020 /* Application */,
 				C06FB3F42A94D06F00ADB7C9 /* Coordinators */,
-				C01399932A9241BE0056F020 /* Models */,
+				C01399932A9241BE0056F020 /* Modules */,
 				C01399912A9241A80056F020 /* Extension */,
 				C06FB4442AA0CCE400ADB7C9 /* Network */,
 				C013998E2A922F2C0056F020 /* Model */,
@@ -141,58 +141,58 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		C01399932A9241BE0056F020 /* Models */ = {
+		C01399932A9241BE0056F020 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				C06FB3F82A94E9B700ADB7C9 /* MainModel */,
-				C06FB3FA2A94FBB300ADB7C9 /* ProfileModel */,
-				C06FB3FB2A94FBFD00ADB7C9 /* FavouriteModel */,
-				C06FB3FC2A94FC2D00ADB7C9 /* CartModel */,
+				C06FB3F82A94E9B700ADB7C9 /* MainModule */,
+				C06FB3FA2A94FBB300ADB7C9 /* ProfileModule */,
+				C06FB3FB2A94FBFD00ADB7C9 /* FavouriteModule */,
+				C06FB3FC2A94FC2D00ADB7C9 /* CartModule */,
 			);
-			path = Models;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		C06FB3F42A94D06F00ADB7C9 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
 				C06FB3F52A94D09600ADB7C9 /* AppCoordinator.swift */,
-				C06FB4422A9D100C00ADB7C9 /* BaseTabBarController.swift */,
+				C06FB4422A9D100C00ADB7C9 /* TabBarCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
-		C06FB3F82A94E9B700ADB7C9 /* MainModel */ = {
+		C06FB3F82A94E9B700ADB7C9 /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
 				C013997A2A91F4AC0056F020 /* MainViewController.swift */,
 				C06FB3F22A93AE6900ADB7C9 /* MainTableViewCell.swift */,
 				C06FB3EE2A936AE100ADB7C9 /* MainViewModelImp.swift */,
 			);
-			name = MainModel;
+			name = MainModule;
 			sourceTree = "<group>";
 		};
-		C06FB3FA2A94FBB300ADB7C9 /* ProfileModel */ = {
+		C06FB3FA2A94FBB300ADB7C9 /* ProfileModule */ = {
 			isa = PBXGroup;
 			children = (
 				C06FB4012A974F7800ADB7C9 /* ProfileViewController.swift */,
 			);
-			path = ProfileModel;
+			path = ProfileModule;
 			sourceTree = "<group>";
 		};
-		C06FB3FB2A94FBFD00ADB7C9 /* FavouriteModel */ = {
+		C06FB3FB2A94FBFD00ADB7C9 /* FavouriteModule */ = {
 			isa = PBXGroup;
 			children = (
 				C06FB4032A974F8400ADB7C9 /* FavouriteViewController.swift */,
 			);
-			name = FavouriteModel;
+			name = FavouriteModule;
 			sourceTree = "<group>";
 		};
-		C06FB3FC2A94FC2D00ADB7C9 /* CartModel */ = {
+		C06FB3FC2A94FC2D00ADB7C9 /* CartModule */ = {
 			isa = PBXGroup;
 			children = (
 				C06FB4052A974F9A00ADB7C9 /* CartViewController.swift */,
 			);
-			name = CartModel;
+			name = CartModule;
 			sourceTree = "<group>";
 		};
 		C06FB4442AA0CCE400ADB7C9 /* Network */ = {
@@ -324,7 +324,7 @@
 				C01399902A92312B0056F020 /* Product.swift in Sources */,
 				C06FB3F32A93AE6900ADB7C9 /* MainTableViewCell.swift in Sources */,
 				C06FB4042A974F8400ADB7C9 /* FavouriteViewController.swift in Sources */,
-				C06FB4432A9D100C00ADB7C9 /* BaseTabBarController.swift in Sources */,
+				C06FB4432A9D100C00ADB7C9 /* TabBarCoordinator.swift in Sources */,
 				C06FB3F62A94D09600ADB7C9 /* AppCoordinator.swift in Sources */,
 				C01399772A91F4AC0056F020 /* AppDelegate.swift in Sources */,
 				C06FB4022A974F7800ADB7C9 /* ProfileViewController.swift in Sources */,

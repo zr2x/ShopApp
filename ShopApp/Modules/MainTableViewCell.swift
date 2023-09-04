@@ -25,44 +25,12 @@ class MainTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        productImageView.translatesAutoresizingMaskIntoConstraints = false
-        productLabel.translatesAutoresizingMaskIntoConstraints = false
-        priceLabel.translatesAutoresizingMaskIntoConstraints = false
-        buyButton.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         productImageView.frame = CGRect(x: 5, y: 5, width: 100, height: 100)
         productLabel.frame = CGRect(x: 5, y: 110, width: contentView.frame.size.width / 2, height: 20)
         priceLabel.frame = CGRect(x: 5, y: 135, width: contentView.frame.size.width / 2, height: 20)
         buyButton.frame = CGRect(x: 5, y: 160, width: 100, height: 30)
         descriptionLabel.frame = CGRect(x: 5, y: 190, width: contentView.frame.size.width / 2, height: 20)
-        
-        NSLayoutConstraint.activate([
-//            productImageView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
-//            productImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
-//            productImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
-//            productImageView.widthAnchor.constraint(equalToConstant: 50),
-//            productImageView.heightAnchor.constraint(equalToConstant: 100),
-//
-//            productLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 10),
-//            productLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
-//            productLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
-//            productLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-//            priceLabel.topAnchor.constraint(equalTo: productLabel.bottomAnchor, constant: 10),
-//            priceLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
-//            priceLabel.heightAnchor.constraint(equalToConstant: 20),
-//
-//            buyButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 5),
-//            buyButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
-//            buyButton.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-//            buyButton.heightAnchor.constraint(equalToConstant: 20),
-//
-//            descriptionLabel.topAnchor.constraint(equalTo: buyButton.bottomAnchor, constant: 5),
-//            descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-//            descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
-//            descriptionLabel.heightAnchor.constraint(equalToConstant: 20)
-        ])
     }
     
     func configureViews(product: Product) {
