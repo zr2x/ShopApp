@@ -40,6 +40,8 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         registerCell()
         constraintsTableView()
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 200
     }
     
     private func registerCell() {
@@ -86,7 +88,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return  250
     }
 }

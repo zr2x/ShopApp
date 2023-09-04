@@ -7,16 +7,24 @@ class MainTableViewCell: UITableViewCell {
     // MARK: - UI Components
     
     private var productImageView = UIImageView()
-    private var productLabel = UILabel()
+    private var productTitleLabel = UILabel()
     private var priceLabel = UILabel()
     private var buyButton = UIButton()
-    private var descriptionLabel = UILabel()
+    private var descriptionProductLabel = UILabel()
+    
+    // MARK: - Properties
+    
+    private let constant = Constant()
     
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
             addViews()
-            
+//        productImageView.backgroundColor = .yellow
+//        productTitleLabel.backgroundColor = .red
+//        priceLabel.backgroundColor = .green
+//        descriptionProductLabel.backgroundColor = .systemCyan
+        
     }
     
     required init?(coder: NSCoder) {
@@ -27,14 +35,26 @@ class MainTableViewCell: UITableViewCell {
         super.layoutSubviews()
         
         productImageView.frame = CGRect(x: 5, y: 5, width: 100, height: 100)
-        productLabel.frame = CGRect(x: 5, y: 110, width: contentView.frame.size.width / 2, height: 20)
-        priceLabel.frame = CGRect(x: 5, y: 135, width: contentView.frame.size.width / 2, height: 20)
-        buyButton.frame = CGRect(x: 5, y: 160, width: 100, height: 30)
-        descriptionLabel.frame = CGRect(x: 5, y: 190, width: contentView.frame.size.width / 2, height: 20)
+        productTitleLabel.frame = CGRect(x: productImageView.frame.minX + 5,
+                                         y: productImageView.frame.maxY + 8,
+                                         width: productImageView.frame.width + 50,
+                                         height: productImageView.frame.height / 5 + 5)
+        priceLabel.frame = CGRect(x: productTitleLabel.frame.minX,
+                                  y: productTitleLabel.frame.maxY + 8,
+                                  width: productTitleLabel.frame.width,
+                                  height: productImageView.frame.height / 5 + 5)
+        buyButton.frame = CGRect(x: priceLabel.frame.minX,
+                                 y: priceLabel.frame.maxY + 8,
+                                 width: priceLabel.frame.width,
+                                 height: productImageView.frame.height / 5 + 5)
+        descriptionProductLabel.frame = CGRect(x: buyButton.frame.minX,
+                                               y: buyButton.frame.maxY + 8,
+                                               width: buyButton.frame.width + 50,
+                                               height: productImageView.frame.height / 5 + 5)
     }
     
     func configureViews(product: Product) {
-        configureProductLabel(product: product.productInfo.name)
+        configureProductTitleLabel(product: product.productInfo.name)
         configurePriceLabel(price: product.productInfo.price)
         configureProductImageView(image: product.productInfo.image)
         configureDescriptionLabel(description: product.productInfo.descriptionInfo.information)
@@ -45,10 +65,10 @@ class MainTableViewCell: UITableViewCell {
     
     private func addViews() {
         contentView.addSubview(productImageView)
-        contentView.addSubview(productLabel)
+        contentView.addSubview(productTitleLabel)
         contentView.addSubview(priceLabel)
         contentView.addSubview(buyButton)
-        contentView.addSubview(descriptionLabel)
+        contentView.addSubview(descriptionProductLabel)
     }
     
     private func configureProductImageView(image: String) {
@@ -58,25 +78,28 @@ class MainTableViewCell: UITableViewCell {
         productImageView.layer.cornerRadius = 10
     }
     
-    private func configureProductLabel(product: String) {
-        productLabel.text = product
-        productLabel.numberOfLines = 0
+    private func configureProductTitleLabel(product: String) {
+        productTitleLabel.text = product
+        productTitleLabel.numberOfLines = 0
+        productTitleLabel.font = UIFont(name: constant.avenirBook, size: 25)
     }
     
     private func configurePriceLabel(price: String) {
         priceLabel.text = price
+        priceLabel.font = UIFont(name: constant.avenirBook, size: 20)
     }
     
     private func configureDescriptionLabel(description: String) {
-        descriptionLabel.text = description
-        descriptionLabel.numberOfLines = 0
+        descriptionProductLabel.text = description
+        descriptionProductLabel.numberOfLines = 0
+        descriptionProductLabel.font = UIFont(name: constant.avenirBook, size: 15)
     }
     
     private func configureBuyButton(price: String) {
         buyButton.setTitle("В корзину", for: .normal)
         buyButton.setTitleColor(.black, for: .normal)
-        buyButton.titleLabel?.textAlignment = .left
-        buyButton.backgroundColor = .white
+        buyButton.titleLabel?.font = UIFont(name: constant.avenirBook, size: 20)
+        buyButton.backgroundColor = .lightGray
         buyButton.layer.cornerRadius = 10
     }
 }

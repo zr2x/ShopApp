@@ -21,6 +21,7 @@
 		C06FB4062A974F9A00ADB7C9 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB4052A974F9A00ADB7C9 /* CartViewController.swift */; };
 		C06FB4432A9D100C00ADB7C9 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB4422A9D100C00ADB7C9 /* TabBarCoordinator.swift */; };
 		C06FB4462AA0CCFF00ADB7C9 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB4452AA0CCFF00ADB7C9 /* ApiClient.swift */; };
+		C0CB51682AA6080B0092BDC7 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB51672AA6080B0092BDC7 /* Constant.swift */; };
 		C726A442AFD011FB0A3B2417 /* Pods_ShopApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84946356C5D44C096CCD806D /* Pods_ShopApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		C06FB4052A974F9A00ADB7C9 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		C06FB4422A9D100C00ADB7C9 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		C06FB4452AA0CCFF00ADB7C9 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		C0CB51672AA6080B0092BDC7 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				C01399812A91F4AD0056F020 /* LaunchScreen.storyboard */,
 				C01399842A91F4AD0056F020 /* Info.plist */,
 				C013997F2A91F4AD0056F020 /* Assets.xcassets */,
+				C0CB51672AA6080B0092BDC7 /* Constant.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				C06FB4432A9D100C00ADB7C9 /* TabBarCoordinator.swift in Sources */,
 				C06FB3F62A94D09600ADB7C9 /* AppCoordinator.swift in Sources */,
 				C01399772A91F4AC0056F020 /* AppDelegate.swift in Sources */,
+				C0CB51682AA6080B0092BDC7 /* Constant.swift in Sources */,
 				C06FB4022A974F7800ADB7C9 /* ProfileViewController.swift in Sources */,
 				C06FB3F12A938EEA00ADB7C9 /* Category.swift in Sources */,
 				C06FB4462AA0CCFF00ADB7C9 /* ApiClient.swift in Sources */,
