@@ -1,10 +1,3 @@
-//
-//  ApiClient.swift
-//  ShopApp
-//
-//  Created by Искандер Ситдиков on 31.08.2023.
-//
-
 import Foundation
 
 public struct ApiClient {

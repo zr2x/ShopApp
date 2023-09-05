@@ -19,12 +19,7 @@ class MainTableViewCell: UITableViewCell {
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-            addViews()
-//        productImageView.backgroundColor = .yellow
-//        productTitleLabel.backgroundColor = .red
-//        priceLabel.backgroundColor = .green
-//        descriptionProductLabel.backgroundColor = .systemCyan
-        
+            addViews()       
     }
     
     required init?(coder: NSCoder) {
@@ -83,7 +78,7 @@ class MainTableViewCell: UITableViewCell {
         productTitleLabel.numberOfLines = 0
         productTitleLabel.font = UIFont(name: constant.avenirBook, size: 25)
     }
-    
+    		
     private func configurePriceLabel(price: String) {
         priceLabel.text = price
         priceLabel.font = UIFont(name: constant.avenirBook, size: 20)

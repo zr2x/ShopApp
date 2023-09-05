@@ -15,13 +15,14 @@
 		C06FB3EF2A936AE100ADB7C9 /* MainViewModelImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB3EE2A936AE100ADB7C9 /* MainViewModelImp.swift */; };
 		C06FB3F12A938EEA00ADB7C9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB3F02A938EEA00ADB7C9 /* Category.swift */; };
 		C06FB3F32A93AE6900ADB7C9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB3F22A93AE6900ADB7C9 /* MainTableViewCell.swift */; };
-		C06FB3F62A94D09600ADB7C9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB3F52A94D09600ADB7C9 /* AppCoordinator.swift */; };
+		C06FB3F62A94D09600ADB7C9 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB3F52A94D09600ADB7C9 /* CoordinatorProtocol.swift */; };
 		C06FB4022A974F7800ADB7C9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB4012A974F7800ADB7C9 /* ProfileViewController.swift */; };
 		C06FB4042A974F8400ADB7C9 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB4032A974F8400ADB7C9 /* FavouriteViewController.swift */; };
 		C06FB4062A974F9A00ADB7C9 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB4052A974F9A00ADB7C9 /* CartViewController.swift */; };
 		C06FB4432A9D100C00ADB7C9 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB4422A9D100C00ADB7C9 /* TabBarCoordinator.swift */; };
 		C06FB4462AA0CCFF00ADB7C9 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB4452AA0CCFF00ADB7C9 /* ApiClient.swift */; };
 		C0CB51682AA6080B0092BDC7 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB51672AA6080B0092BDC7 /* Constant.swift */; };
+		C0DA160B2AA7608400FFF732 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA160A2AA7608400FFF732 /* AppCoordinator.swift */; };
 		C726A442AFD011FB0A3B2417 /* Pods_ShopApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84946356C5D44C096CCD806D /* Pods_ShopApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,13 +40,14 @@
 		C06FB3EE2A936AE100ADB7C9 /* MainViewModelImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelImp.swift; sourceTree = "<group>"; };
 		C06FB3F02A938EEA00ADB7C9 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		C06FB3F22A93AE6900ADB7C9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
-		C06FB3F52A94D09600ADB7C9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		C06FB3F52A94D09600ADB7C9 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		C06FB4012A974F7800ADB7C9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C06FB4032A974F8400ADB7C9 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		C06FB4052A974F9A00ADB7C9 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		C06FB4422A9D100C00ADB7C9 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		C06FB4452AA0CCFF00ADB7C9 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		C0CB51672AA6080B0092BDC7 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		C0DA160A2AA7608400FFF732 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +160,8 @@
 		C06FB3F42A94D06F00ADB7C9 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				C06FB3F52A94D09600ADB7C9 /* AppCoordinator.swift */,
+				C06FB3F52A94D09600ADB7C9 /* CoordinatorProtocol.swift */,
+				C0DA160A2AA7608400FFF732 /* AppCoordinator.swift */,
 				C06FB4422A9D100C00ADB7C9 /* TabBarCoordinator.swift */,
 			);
 			path = Coordinators;
@@ -327,8 +330,9 @@
 				C01399902A92312B0056F020 /* Product.swift in Sources */,
 				C06FB3F32A93AE6900ADB7C9 /* MainTableViewCell.swift in Sources */,
 				C06FB4042A974F8400ADB7C9 /* FavouriteViewController.swift in Sources */,
+				C0DA160B2AA7608400FFF732 /* AppCoordinator.swift in Sources */,
 				C06FB4432A9D100C00ADB7C9 /* TabBarCoordinator.swift in Sources */,
-				C06FB3F62A94D09600ADB7C9 /* AppCoordinator.swift in Sources */,
+				C06FB3F62A94D09600ADB7C9 /* CoordinatorProtocol.swift in Sources */,
 				C01399772A91F4AC0056F020 /* AppDelegate.swift in Sources */,
 				C0CB51682AA6080B0092BDC7 /* Constant.swift in Sources */,
 				C06FB4022A974F7800ADB7C9 /* ProfileViewController.swift in Sources */,

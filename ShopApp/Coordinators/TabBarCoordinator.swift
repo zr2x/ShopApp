@@ -48,26 +48,32 @@ enum TabBarPage {
     }
 }
 
-class BaseTabBarController {
+protocol TabBarCoordinatorProtocol: AppCoordinator {
+    var tabBarController: UITabBarController { get set }
     
-    var navigationController = UINavigationController()
+    func selectPage(_ page: TabBarPage)
+    
+    func setSelectedIndex(_ index: Int)
+    
+    func currentPage() -> TabBarPage?
+}
 
-    var tabBarController = UITabBarController()
+class TabBarController: Coordinator {
+   
     
-    var isLoggedIn: Bool = false
+    var navigationController: UINavigationController
     
-    var childCoordinators: [Coordinator] = []
+    var isLoggedIn: Bool
     
-    init(_ navigationController: UINavigationController, tabBarController: UITabBarController) {
+    var childCoordinators: [Coordinator]
+    
+    required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.tabBarController = .init()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func start() {
-        
+        <#code#>
     }
+    
+  
 }
