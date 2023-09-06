@@ -16,3 +16,7 @@ extension Coordinator {
         childCoordinators.removeAll()
     }
 }
+
+protocol CoordinatorFinishDelegate: AnyObject {
+    func coordinatorDidFinish(childCoordinator: Coordinator)
+}

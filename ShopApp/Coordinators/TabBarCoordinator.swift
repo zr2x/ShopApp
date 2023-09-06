@@ -34,6 +34,19 @@ enum TabBarPage {
         }
     }
     
+    func pageOrderNumber() -> Int {
+        switch self {
+        case .main:
+            return 0
+        case .favourite:
+            return 1
+        case .cart:
+            return 2
+        case .profile:
+            return 3
+        }
+    }
+    
     func pageIconValue() -> UIImage {
         switch self {
         case .main:
@@ -58,22 +71,65 @@ protocol TabBarCoordinatorProtocol: AppCoordinator {
     func currentPage() -> TabBarPage?
 }
 
-class TabBarController: Coordinator {
-   
-    
+class TabBarCoordinator: Coordinator {
     var navigationController: UINavigationController
-    
+    var tabBarController: UITabBarController
     var isLoggedIn: Bool
-    
     var childCoordinators: [Coordinator]
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.tabBarController = .init()
     }
     
     func start() {
-        <#code#>
+        let pages: [TabBarPage] = [.main, .favourite, .cart, .profile]
+        
+        let controllers: [UINavigationController] = pages.map({ getTabController($0) })
+        
+        prepareTabBarController(withTabControllers: controllers)
     }
     
-  
+    private func prepareTabBarController(withTabControllers tabBarControllers: [UIViewController]) {
+        tabBarController.setViewControllers(tabBarControllers, animated: true)
+        tabBarController.selectedIndex  = TabBarPage.profile.pageOrderNumber()
+        tabBarController.tabBar.isTranslucent = false
+        navigationController.viewControllers = [tabBarController]
+    }
+    
+    private func getTabController(_ page: TabBarPage) -> UINavigationController {
+        let navController = UINavigationController()
+        navController.setNavigationBarHidden(true, animated: true)
+        navController.tabBarItem = UITabBarItem(title: page.pageTitleValue(),
+                                                image: nil,
+                                                tag: page.pageOrderNumber())
+        switch page {
+        case .main:
+            let mainVC = MainViewController()
+            navController.pushViewController(mainVC, animated: true)
+        case .favourite:
+            let favouriteVC = FavouriteViewController()
+            navController.pushViewController(favouriteVC, animated: true)
+        case .cart:
+            let cartVC = CartViewController()
+            navController.pushViewController(cartVC, animated: true)
+        case .profile:
+            let profileVC = ProfileViewController()
+            navController.pushViewController(profileVC, animated: true)
+        }
+        return navController
+    }
+    
+    func currentPage() -> TabBarPage? {
+        TabBarPage(index: tabBarController.selectedIndex)
+    }
+    
+    func selectPage(_ page: TabBarPage) {
+        tabBarController.selectedIndex = page.pageOrderNumber()
+    }
+    
+    func setselectedInde(_ index: Int) {
+        guard let page = TabBarPage(index: index) else { return }
+        tabBarController.selectedIndex = page.pageOrderNumber()
+    }
 }
