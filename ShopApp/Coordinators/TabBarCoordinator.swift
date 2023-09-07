@@ -72,9 +72,11 @@ protocol TabBarCoordinatorProtocol: AppCoordinator {
 }
 
 class TabBarCoordinator: Coordinator {
+    
     var navigationController: UINavigationController
     var tabBarController: UITabBarController
     var childCoordinators: [Coordinator] = []
+    var type: CoordinatorType { .tab }
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController

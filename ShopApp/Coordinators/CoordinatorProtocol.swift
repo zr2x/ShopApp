@@ -24,5 +24,5 @@ protocol CoordinatorFinishDelegate: AnyObject {
 // MARK: - CoordinatorType
 
 enum CoordinatorType {
-    case app, main, favouvirte, cart, profile
+    case app, main, tab
 }

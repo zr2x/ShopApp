@@ -1,7 +1,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
+//    var didSentEvenetClosure: ((MainCoordinator.Event) -> Void)?
     var viewModel: MainViewModel = MainViewModelImp()
     weak var coordinator: AppCoordinator?
     private let tableView = UITableView()

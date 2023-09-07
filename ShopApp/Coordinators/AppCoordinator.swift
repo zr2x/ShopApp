@@ -26,3 +26,21 @@ class AppCoordinator: Coordinator {
         childCoordinators.append(tabBarCoordinator)
     }
 }
+
+extension AppCoordinator: CoordinatorFinishDelegate {
+    func coordinatorDidFinish(childCoordinator: Coordinator) {
+        childCoordinators = childCoordinators.filter({ $0.type != childCoordinator.type })
+        
+        switch childCoordinator.type {
+        case .tab:
+            navigationController.viewControllers.removeAll()
+            
+            startTabBarFlow()
+        case .main:
+            navigationController.viewControllers.removeAll()
+            startTabBarFlow()
+        default:
+            break
+        }
+    }
+}

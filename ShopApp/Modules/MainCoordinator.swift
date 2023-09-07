@@ -6,8 +6,10 @@ protocol MainCoordinatorProtocol: Coordinator {
 }
 
 class MainCoordinator: MainCoordinatorProtocol {
+    
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
+    var type: CoordinatorType { .main }
 
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
