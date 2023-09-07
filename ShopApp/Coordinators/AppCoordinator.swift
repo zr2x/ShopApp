@@ -1,10 +1,12 @@
 import UIKit
 
 class AppCoordinator: Coordinator {
+    weak var finishDelegate: CoordinatorFinishDelegate? = nil
     
     var isLoggedIn = false
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
+    var type: CoordinatorType { .app }
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
