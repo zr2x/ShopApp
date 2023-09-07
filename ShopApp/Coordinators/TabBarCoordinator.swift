@@ -62,6 +62,7 @@ enum TabBarPage {
 }
 
 protocol TabBarCoordinatorProtocol: AppCoordinator {
+    
     var tabBarController: UITabBarController { get set }
     
     func selectPage(_ page: TabBarPage)
@@ -72,10 +73,14 @@ protocol TabBarCoordinatorProtocol: AppCoordinator {
 }
 
 class TabBarCoordinator: Coordinator {
+    weak var finishDelegate: CoordinatorFinishDelegate?
     
     var navigationController: UINavigationController
+    
     var tabBarController: UITabBarController
+    
     var childCoordinators: [Coordinator] = []
+    
     var type: CoordinatorType { .tab }
     
     required init(_ navigationController: UINavigationController) {
@@ -95,12 +100,13 @@ class TabBarCoordinator: Coordinator {
         tabBarController.setViewControllers(tabBarControllers, animated: true)
         tabBarController.selectedIndex  = TabBarPage.profile.pageOrderNumber()
         tabBarController.tabBar.isTranslucent = false
+        tabBarController.tabBar.backgroundColor = .yellow
         navigationController.viewControllers = [tabBarController]
     }
     
     private func getTabController(_ page: TabBarPage) -> UINavigationController {
         let navController = UINavigationController()
-        navController.setNavigationBarHidden(true, animated: true)
+        navController.setNavigationBarHidden(false, animated: true)
         navController.tabBarItem = UITabBarItem(title: page.pageTitleValue(),
                                                 image: nil,
                                                 tag: page.pageOrderNumber())

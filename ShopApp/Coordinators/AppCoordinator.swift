@@ -1,7 +1,7 @@
 import UIKit
 
 class AppCoordinator: Coordinator {
-    weak var finishDelegate: CoordinatorFinishDelegate? = nil
+    weak var finishDelegate: CoordinatorFinishDelegate? 
     
     var isLoggedIn = false
     var navigationController: UINavigationController
@@ -15,6 +15,7 @@ class AppCoordinator: Coordinator {
     
     func start() {
         let mainCoordinator = MainCoordinator(navigationController)
+        mainCoordinator.finishDelegate = self
         mainCoordinator.start()
         childCoordinators.append(mainCoordinator)
         
@@ -22,6 +23,7 @@ class AppCoordinator: Coordinator {
     
     func startTabBarFlow() {
         let tabBarCoordinator = TabBarCoordinator(navigationController)
+        tabBarCoordinator.finishDelegate = self
         tabBarCoordinator.start()
         childCoordinators.append(tabBarCoordinator)
     }

@@ -1,6 +1,7 @@
 import UIKit
 
 // MARK: - Coordinator
+
 protocol Coordinator: AnyObject {
     var navigationController: UINavigationController { get set }
     var childCoordinators: [Coordinator] { get set }
@@ -16,7 +17,9 @@ extension Coordinator {
         childCoordinators.removeAll()
     }
 }
+
 // MARK: - CoordinatorOutput
+
 protocol CoordinatorFinishDelegate: AnyObject {
     func coordinatorDidFinish(childCoordinator: Coordinator)
 }
