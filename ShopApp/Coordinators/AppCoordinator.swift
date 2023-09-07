@@ -12,14 +12,12 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        let mainViewController = MainViewController()
-        let mainViewModel = MainViewModelImp()
-        mainViewModel.appCoordinator = self
-        mainViewController.viewModel = mainViewModel
-        navigationController.show(mainViewController, sender: self)
+        let mainCoordinator = MainCoordinator(navigationController)
+        mainCoordinator.start()
+        childCoordinators.append(mainCoordinator)
     }
     
-    func showMainFlow() {
+    func startTabBarFlow() {
         let tabBarCoordinator = TabBarCoordinator(navigationController)
         tabBarCoordinator.start()
         childCoordinators.append(tabBarCoordinator)

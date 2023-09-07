@@ -23,6 +23,7 @@
 		C06FB4462AA0CCFF00ADB7C9 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06FB4452AA0CCFF00ADB7C9 /* ApiClient.swift */; };
 		C0CB51682AA6080B0092BDC7 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB51672AA6080B0092BDC7 /* Constant.swift */; };
 		C0DA160B2AA7608400FFF732 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA160A2AA7608400FFF732 /* AppCoordinator.swift */; };
+		C0DA160D2AA9AD7300FFF732 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA160C2AA9AD7300FFF732 /* MainCoordinator.swift */; };
 		C726A442AFD011FB0A3B2417 /* Pods_ShopApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84946356C5D44C096CCD806D /* Pods_ShopApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		C06FB4452AA0CCFF00ADB7C9 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		C0CB51672AA6080B0092BDC7 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C0DA160A2AA7608400FFF732 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		C0DA160C2AA9AD7300FFF732 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				C013997A2A91F4AC0056F020 /* MainViewController.swift */,
 				C06FB3F22A93AE6900ADB7C9 /* MainTableViewCell.swift */,
 				C06FB3EE2A936AE100ADB7C9 /* MainViewModelImp.swift */,
+				C0DA160C2AA9AD7300FFF732 /* MainCoordinator.swift */,
 			);
 			name = MainModule;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				C0CB51682AA6080B0092BDC7 /* Constant.swift in Sources */,
 				C06FB4022A974F7800ADB7C9 /* ProfileViewController.swift in Sources */,
 				C06FB3F12A938EEA00ADB7C9 /* Category.swift in Sources */,
+				C0DA160D2AA9AD7300FFF732 /* MainCoordinator.swift in Sources */,
 				C06FB4462AA0CCFF00ADB7C9 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

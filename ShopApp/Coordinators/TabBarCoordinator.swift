@@ -74,8 +74,7 @@ protocol TabBarCoordinatorProtocol: AppCoordinator {
 class TabBarCoordinator: Coordinator {
     var navigationController: UINavigationController
     var tabBarController: UITabBarController
-    var isLoggedIn: Bool
-    var childCoordinators: [Coordinator]
+    var childCoordinators: [Coordinator] = []
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
