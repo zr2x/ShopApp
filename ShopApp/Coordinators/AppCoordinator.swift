@@ -15,6 +15,7 @@ class AppCoordinator: Coordinator {
         let mainCoordinator = MainCoordinator(navigationController)
         mainCoordinator.start()
         childCoordinators.append(mainCoordinator)
+        
     }
     
     func startTabBarFlow() {

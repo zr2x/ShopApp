@@ -9,15 +9,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        
         let navigationController = UINavigationController()
-        let tabBarController = UITabBarController()
-        appCoordinator = AppCoordinator(navigationController)
-        appCoordinator?.start()
+        
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
+        appCoordinator = AppCoordinator(navigationController)
+        appCoordinator?.start()
+        
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
-
 }
