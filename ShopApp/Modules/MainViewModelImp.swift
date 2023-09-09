@@ -25,10 +25,6 @@ class MainViewModelImp: MainViewModel {
     weak var appCoordinator: AppCoordinator?
     
     // MARK: methods
-    func someFunc() {
-        appCoordinator?.start()
-    }
-    
     func updateData() {
         showLoading?()
         ApiClient.getDataFromServer { [weak self] success, data in
@@ -39,6 +35,6 @@ class MainViewModelImp: MainViewModel {
                 print("Error")
             }
         }
-        
+
     }
 }
