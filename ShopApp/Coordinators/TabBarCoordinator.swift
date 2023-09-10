@@ -85,7 +85,7 @@ class TabBarCoordinator: Coordinator {
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.tabBarController = .init()
+        self.tabBarController = UITabBarController()
     }
     
     func start() {
@@ -108,7 +108,7 @@ class TabBarCoordinator: Coordinator {
         let navController = UINavigationController()
         navController.setNavigationBarHidden(false, animated: true)
         navController.tabBarItem = UITabBarItem(title: page.pageTitleValue(),
-                                                image: nil,
+                                                image: page.pageIconValue(),
                                                 tag: page.pageOrderNumber())
         switch page {
         case .main:
@@ -138,5 +138,9 @@ class TabBarCoordinator: Coordinator {
     func setselectedInde(_ index: Int) {
         guard let page = TabBarPage(index: index) else { return }
         tabBarController.selectedIndex = page.pageOrderNumber()
+    }
+    
+    deinit {
+        print("tabbar deinit")
     }
 }

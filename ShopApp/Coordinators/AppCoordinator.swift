@@ -1,7 +1,7 @@
 import UIKit
 
 class AppCoordinator: Coordinator {
-    weak var finishDelegate: CoordinatorFinishDelegate? 
+    weak var finishDelegate: CoordinatorFinishDelegate?
     
     var isLoggedIn = false
     var navigationController: UINavigationController
@@ -36,7 +36,6 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         switch childCoordinator.type {
         case .tab:
             navigationController.viewControllers.removeAll()
-            
             startTabBarFlow()
         case .main:
             navigationController.viewControllers.removeAll()

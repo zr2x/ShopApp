@@ -6,7 +6,6 @@ protocol MainCoordinatorProtocol: Coordinator {
 }
 
 class MainCoordinator: MainCoordinatorProtocol {
-    
     weak var finishDelegate: CoordinatorFinishDelegate?
     
     var childCoordinators: [Coordinator] = []

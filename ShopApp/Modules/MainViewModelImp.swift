@@ -18,16 +18,18 @@ class MainViewModelImp: MainViewModel {
     var hideLoading: (() -> Void)?
     
     // MARK: properties
-//    var products = [Product]()
-    var products = [
-        Product(productInfo: ProductInfo(image: "image1", name: "Milk", id: 100, price: "300 rub", deliveryInfo: "30 august", descriptionInfo: DescriptionInfo(count: 111, information: "currently no info available"))),
-        Product(productInfo: ProductInfo(image: "image2", name: "Chips", id: 100, price: "555 rub", deliveryInfo: "30 august", descriptionInfo: DescriptionInfo(count: 111, information: "great choice to eat some snacks")))]
+    //    var products = [Product]()
+    var products: [Product] = []
+    
+    init() {
+        createProducts()
+    }
     weak var appCoordinator: AppCoordinator?
     
     // MARK: methods
     func updateData() {
         showLoading?()
-        ApiClient.getDataFromServer { [weak self] success, data in
+        ApiClient.getDataFromServer { [weak self] success, _ in
             self?.hideLoading?()
             if success {
                 self?.reloadTableView?()
@@ -36,5 +38,15 @@ class MainViewModelImp: MainViewModel {
             }
         }
 
+    }
+    
+    // FIXME: Test func
+    func createProducts() {
+        for _ in 0...9 {
+            let product = Product(productInfo: ProductInfo(image: "image1", name: "Milk", id: 100, price: "300 rub", deliveryInfo: "30 august", descriptionInfo: DescriptionInfo(count: 111, information: "currently no info available")))
+            let product2 = Product(productInfo: ProductInfo(image: "image2", name: "Chips", id: 100, price: "150 rub", deliveryInfo: "30 august", descriptionInfo: DescriptionInfo(count: 111, information: "best snack")))
+            products.append(product)
+            products.append(product2)
+        }
     }
 }
