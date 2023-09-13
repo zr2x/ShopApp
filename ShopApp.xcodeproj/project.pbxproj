@@ -24,6 +24,11 @@
 		C0CB51682AA6080B0092BDC7 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CB51672AA6080B0092BDC7 /* Constant.swift */; };
 		C0DA160B2AA7608400FFF732 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA160A2AA7608400FFF732 /* AppCoordinator.swift */; };
 		C0DA160D2AA9AD7300FFF732 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA160C2AA9AD7300FFF732 /* MainCoordinator.swift */; };
+		C0DA16212AB03E8500FFF732 /* SpashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA16202AB03E8500FFF732 /* SpashViewController.swift */; };
+		C0DA16252AB0A04200FFF732 /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA16242AB0A04200FFF732 /* SplashCoordinator.swift */; };
+		C0DA16292AB1CE1600FFF732 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = C0DA16282AB1CE1600FFF732 /* splash.json */; };
+		C0DA162B2AB1ED1F00FFF732 /* splashIm.png in Resources */ = {isa = PBXBuildFile; fileRef = C0DA162A2AB1ED1E00FFF732 /* splashIm.png */; };
+		C0DA162D2AB1FD0D00FFF732 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA162C2AB1FD0D00FFF732 /* UILabel.swift */; };
 		C726A442AFD011FB0A3B2417 /* Pods_ShopApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84946356C5D44C096CCD806D /* Pods_ShopApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +55,11 @@
 		C0CB51672AA6080B0092BDC7 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C0DA160A2AA7608400FFF732 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		C0DA160C2AA9AD7300FFF732 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		C0DA16202AB03E8500FFF732 /* SpashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpashViewController.swift; sourceTree = "<group>"; };
+		C0DA16242AB0A04200FFF732 /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
+		C0DA16282AB1CE1600FFF732 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
+		C0DA162A2AB1ED1E00FFF732 /* splashIm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashIm.png; sourceTree = "<group>"; };
+		C0DA162C2AB1FD0D00FFF732 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +112,7 @@
 		C01399752A91F4AC0056F020 /* ShopApp */ = {
 			isa = PBXGroup;
 			children = (
+				C0DA161F2AB03DF100FFF732 /* Splash */,
 				C013998C2A922E400056F020 /* Application */,
 				C06FB3F42A94D06F00ADB7C9 /* Coordinators */,
 				C01399932A9241BE0056F020 /* Modules */,
@@ -124,6 +135,8 @@
 		C013998D2A922E710056F020 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C0DA16282AB1CE1600FFF732 /* splash.json */,
+				C0DA162A2AB1ED1E00FFF732 /* splashIm.png */,
 				C01399812A91F4AD0056F020 /* LaunchScreen.storyboard */,
 				C01399842A91F4AD0056F020 /* Info.plist */,
 				C013997F2A91F4AD0056F020 /* Assets.xcassets */,
@@ -144,6 +157,7 @@
 		C01399912A9241A80056F020 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C0DA162C2AB1FD0D00FFF732 /* UILabel.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -172,10 +186,10 @@
 		C06FB3F82A94E9B700ADB7C9 /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
+				C0DA160C2AA9AD7300FFF732 /* MainCoordinator.swift */,
 				C013997A2A91F4AC0056F020 /* MainViewController.swift */,
 				C06FB3F22A93AE6900ADB7C9 /* MainTableViewCell.swift */,
 				C06FB3EE2A936AE100ADB7C9 /* MainViewModelImp.swift */,
-				C0DA160C2AA9AD7300FFF732 /* MainCoordinator.swift */,
 			);
 			name = MainModule;
 			sourceTree = "<group>";
@@ -212,6 +226,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		C0DA161F2AB03DF100FFF732 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				C0DA16202AB03E8500FFF732 /* SpashViewController.swift */,
+				C0DA16242AB0A04200FFF732 /* SplashCoordinator.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,10 +243,10 @@
 			buildConfigurationList = C01399872A91F4AD0056F020 /* Build configuration list for PBXNativeTarget "ShopApp" */;
 			buildPhases = (
 				961B81DC92A98255F78ED471 /* [CP] Check Pods Manifest.lock */,
-				C013998A2A91F70C0056F020 /* ShellScript */,
 				C013996F2A91F4AC0056F020 /* Sources */,
 				C01399702A91F4AC0056F020 /* Frameworks */,
 				C01399712A91F4AC0056F020 /* Resources */,
+				A7CA91A4895C55961F2E23AE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -272,6 +295,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0DA162B2AB1ED1F00FFF732 /* splashIm.png in Resources */,
+				C0DA16292AB1CE1600FFF732 /* splash.json in Resources */,
 				C01399832A91F4AD0056F020 /* LaunchScreen.storyboard in Resources */,
 				C01399802A91F4AD0056F020 /* Assets.xcassets in Resources */,
 			);
@@ -302,23 +327,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C013998A2A91F70C0056F020 /* ShellScript */ = {
+		A7CA91A4895C55961F2E23AE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShopApp/Pods-ShopApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShopApp/Pods-ShopApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShopApp/Pods-ShopApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -329,7 +353,9 @@
 			files = (
 				C06FB3EF2A936AE100ADB7C9 /* MainViewModelImp.swift in Sources */,
 				C013997B2A91F4AC0056F020 /* MainViewController.swift in Sources */,
+				C0DA16212AB03E8500FFF732 /* SpashViewController.swift in Sources */,
 				C06FB4062A974F9A00ADB7C9 /* CartViewController.swift in Sources */,
+				C0DA162D2AB1FD0D00FFF732 /* UILabel.swift in Sources */,
 				C01399902A92312B0056F020 /* Product.swift in Sources */,
 				C06FB3F32A93AE6900ADB7C9 /* MainTableViewCell.swift in Sources */,
 				C06FB4042A974F8400ADB7C9 /* FavouriteViewController.swift in Sources */,
@@ -339,6 +365,7 @@
 				C01399772A91F4AC0056F020 /* AppDelegate.swift in Sources */,
 				C0CB51682AA6080B0092BDC7 /* Constant.swift in Sources */,
 				C06FB4022A974F7800ADB7C9 /* ProfileViewController.swift in Sources */,
+				C0DA16252AB0A04200FFF732 /* SplashCoordinator.swift in Sources */,
 				C06FB3F12A938EEA00ADB7C9 /* Category.swift in Sources */,
 				C0DA160D2AA9AD7300FFF732 /* MainCoordinator.swift in Sources */,
 				C06FB4462AA0CCFF00ADB7C9 /* ApiClient.swift in Sources */,

@@ -43,7 +43,7 @@ class MainViewModelImp: MainViewModel {
     // FIXME: Test func
     func createProducts() {
         for _ in 0...9 {
-            let product = Product(productInfo: ProductInfo(image: "image1", name: "Milk", id: 100, price: "300 rub", deliveryInfo: "30 august", descriptionInfo: DescriptionInfo(count: 111, information: "currently no info available")))
+            let product = Product(productInfo: ProductInfo(image: "image1", name: "MilkMilkMilkMilkMilkMilkMilkMilkMilkMilkMilkMilk", id: 100, price: "300 rub", deliveryInfo: "30 august", descriptionInfo: DescriptionInfo(count: 111, information: "currently no info available currently no info available currently no info available currently no info available currently no info available currently no info available currently no info available currently no info available currently no info available")))
             let product2 = Product(productInfo: ProductInfo(image: "image2", name: "Chips", id: 100, price: "150 rub", deliveryInfo: "30 august", descriptionInfo: DescriptionInfo(count: 111, information: "best snack")))
             products.append(product)
             products.append(product2)

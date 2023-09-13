@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         appCoordinator = AppCoordinator(navigationController)
-        appCoordinator?.start()
+        appCoordinator?.startTabBarFlow()
         
         return true
     }

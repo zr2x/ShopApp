@@ -6,5 +6,5 @@ target 'ShopApp' do
   use_frameworks!
 
   # Pods for ShopApp
-  pod 'SwiftLint'
+  pod 'lottie-ios'
 end

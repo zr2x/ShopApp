@@ -28,12 +28,22 @@ class MainTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+        layout()
+    }
+    
+    private func layout() {
         productImageView.frame = CGRect(x: 5, y: 5, width: 100, height: 100)
+        
+        let heightProductLabel = UILabel.textHeight(withWidth: contentView.bounds.width / 2,
+                                                    font: productTitleLabel.font,
+                                                    text: productTitleLabel.text ?? "")
+        
         productTitleLabel.frame = CGRect(x: productImageView.frame.minX + 5,
                                          y: productImageView.frame.maxY + 8,
-                                         width: productImageView.frame.width + 50,
-                                         height: productImageView.frame.height / 5 + 5)
+                                         width: contentView.bounds.width / 2,
+                                         height: heightProductLabel)
+        
+        
         priceLabel.frame = CGRect(x: productTitleLabel.frame.minX,
                                   y: productTitleLabel.frame.maxY + 8,
                                   width: productTitleLabel.frame.width,
@@ -42,10 +52,14 @@ class MainTableViewCell: UITableViewCell {
                                  y: priceLabel.frame.maxY + 8,
                                  width: priceLabel.frame.width,
                                  height: productImageView.frame.height / 5 + 5)
+        
+        let height = UILabel.textHeight(withWidth: descriptionProductLabel.frame.width,
+                                        font: descriptionProductLabel.font,
+                                        text: descriptionProductLabel.text ?? "")
         descriptionProductLabel.frame = CGRect(x: buyButton.frame.minX,
                                                y: buyButton.frame.maxY + 8,
-                                               width: buyButton.frame.width + 50,
-                                               height: productImageView.frame.height / 5 + 5)
+                                               width: contentView.bounds.width / 2,
+                                               height: height)
     }
     
     func configureViews(product: Product) {
@@ -92,9 +106,16 @@ class MainTableViewCell: UITableViewCell {
     
     private func configureBuyButton(price: String) {
         buyButton.setTitle("В корзину", for: .normal)
+        buyButton.setTitle("Убрать из корзины", for: .highlighted)
         buyButton.setTitleColor(.black, for: .normal)
         buyButton.titleLabel?.font = UIFont(name: constant.avenirBook, size: 20)
         buyButton.backgroundColor = .lightGray
         buyButton.layer.cornerRadius = 10
+    }
+    
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        layout()
+        
+        return CGSize(width: contentView.frame.width, height: descriptionProductLabel.frame.maxY + 10)
     }
 }

@@ -50,7 +50,7 @@ enum TabBarPage {
     func pageIconValue() -> UIImage {
         switch self {
         case .main:
-            return UIImage(systemName: "book.pages.fill")!
+            return UIImage(systemName: "book.fill")!
         case .favourite:
             return UIImage(systemName: "heart.fill")!
         case .cart:
@@ -100,7 +100,7 @@ class TabBarCoordinator: Coordinator {
         tabBarController.setViewControllers(tabBarControllers, animated: true)
         tabBarController.selectedIndex  = TabBarPage.profile.pageOrderNumber()
         tabBarController.tabBar.isTranslucent = false
-        tabBarController.tabBar.backgroundColor = .yellow
+        tabBarController.tabBar.backgroundColor = .white
         navigationController.viewControllers = [tabBarController]
     }
     
@@ -135,7 +135,7 @@ class TabBarCoordinator: Coordinator {
         tabBarController.selectedIndex = page.pageOrderNumber()
     }
     
-    func setselectedInde(_ index: Int) {
+    func setselectedIndex(_ index: Int) {
         guard let page = TabBarPage(index: index) else { return }
         tabBarController.selectedIndex = page.pageOrderNumber()
     }
