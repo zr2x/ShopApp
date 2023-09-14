@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 public struct ApiClient {
     
@@ -12,4 +12,6 @@ public struct ApiClient {
             complete(true, products)
         }
     }
+    
+
 }

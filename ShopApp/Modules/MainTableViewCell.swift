@@ -43,11 +43,15 @@ class MainTableViewCell: UITableViewCell {
                                          width: contentView.bounds.width / 2,
                                          height: heightProductLabel)
         
+        let heightPriceLabel = UILabel.textHeight(withWidth: contentView.bounds.width / 2,
+                                                  font: priceLabel.font,
+                                                  text: priceLabel.text ?? "")
         
         priceLabel.frame = CGRect(x: productTitleLabel.frame.minX,
                                   y: productTitleLabel.frame.maxY + 8,
-                                  width: productTitleLabel.frame.width,
-                                  height: productImageView.frame.height / 5 + 5)
+                                  width: contentView.bounds.width / 2,
+                                  height: heightPriceLabel)
+        
         buyButton.frame = CGRect(x: priceLabel.frame.minX,
                                  y: priceLabel.frame.maxY + 8,
                                  width: priceLabel.frame.width,
@@ -56,6 +60,7 @@ class MainTableViewCell: UITableViewCell {
         let height = UILabel.textHeight(withWidth: descriptionProductLabel.frame.width,
                                         font: descriptionProductLabel.font,
                                         text: descriptionProductLabel.text ?? "")
+        
         descriptionProductLabel.frame = CGRect(x: buyButton.frame.minX,
                                                y: buyButton.frame.maxY + 8,
                                                width: contentView.bounds.width / 2,

@@ -29,6 +29,7 @@
 		C0DA16292AB1CE1600FFF732 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = C0DA16282AB1CE1600FFF732 /* splash.json */; };
 		C0DA162B2AB1ED1F00FFF732 /* splashIm.png in Resources */ = {isa = PBXBuildFile; fileRef = C0DA162A2AB1ED1E00FFF732 /* splashIm.png */; };
 		C0DA162D2AB1FD0D00FFF732 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA162C2AB1FD0D00FFF732 /* UILabel.swift */; };
+		C0DA162F2AB34C9100FFF732 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA162E2AB34C9100FFF732 /* UIImageView.swift */; };
 		C726A442AFD011FB0A3B2417 /* Pods_ShopApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84946356C5D44C096CCD806D /* Pods_ShopApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		C0DA16282AB1CE1600FFF732 /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		C0DA162A2AB1ED1E00FFF732 /* splashIm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashIm.png; sourceTree = "<group>"; };
 		C0DA162C2AB1FD0D00FFF732 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		C0DA162E2AB34C9100FFF732 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				C0DA162C2AB1FD0D00FFF732 /* UILabel.swift */,
+				C0DA162E2AB34C9100FFF732 /* UIImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				C06FB4432A9D100C00ADB7C9 /* TabBarCoordinator.swift in Sources */,
 				C06FB3F62A94D09600ADB7C9 /* CoordinatorProtocol.swift in Sources */,
 				C01399772A91F4AC0056F020 /* AppDelegate.swift in Sources */,
+				C0DA162F2AB34C9100FFF732 /* UIImageView.swift in Sources */,
 				C0CB51682AA6080B0092BDC7 /* Constant.swift in Sources */,
 				C06FB4022A974F7800ADB7C9 /* ProfileViewController.swift in Sources */,
 				C0DA16252AB0A04200FFF732 /* SplashCoordinator.swift in Sources */,
