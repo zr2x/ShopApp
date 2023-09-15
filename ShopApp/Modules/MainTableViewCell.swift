@@ -86,7 +86,8 @@ class MainTableViewCell: UITableViewCell {
     }
     
     private func configureProductImageView(image: String) {
-        productImageView.image = UIImage(named: image)
+        productImageView.load(url: URL(string: "https://p.turbosquid.com/ts-thumb/7I/XMLwAZ/Sa/image1/png/1615465799/1920x1080/fit_q87/16179403fb4c447cb47489de57e3b9a622405b75/image1.jpg")!)
+//        productImageView.image = UIImage(named: image)
         productImageView.contentMode = .scaleAspectFit
         productImageView.clipsToBounds = true
         productImageView.layer.cornerRadius = 10

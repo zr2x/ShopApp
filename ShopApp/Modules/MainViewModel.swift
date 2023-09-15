@@ -18,7 +18,6 @@ class MainViewModelImp: MainViewModel {
     var hideLoading: (() -> Void)?
     
     // MARK: properties
-    //    var products = [Product]()
     var products: [Product] = []
     
     init() {
