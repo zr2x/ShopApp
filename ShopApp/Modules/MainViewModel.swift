@@ -6,11 +6,12 @@ protocol MainViewModel {
     var showLoading: (() -> Void)? { get set }
     var hideLoading: (() -> Void)? { get set }
     
+    func loadData()
     func updateData()
-    
 }
 
 class MainViewModelImp: MainViewModel {
+    
     
     // MARK: - Variables
     var reloadTableView: (() -> Void)?
@@ -26,7 +27,7 @@ class MainViewModelImp: MainViewModel {
     weak var appCoordinator: AppCoordinator?
     
     // MARK: methods
-    func updateData() {
+    func loadData() {
         showLoading?()
         ApiClient.getDataFromServer { [weak self] success, _ in
             self?.hideLoading?()
@@ -42,10 +43,16 @@ class MainViewModelImp: MainViewModel {
     // FIXME: Test func
     func createProducts() {
         for _ in 0...9 {
-            let product = Product(productInfo: ProductInfo(image: "image1", name: "MilkMilkMilkMilkMilkMilkMilkMilkMilkMilkMilkMilk", id: 100, price: "300 rub", deliveryInfo: "30 august", descriptionInfo: DescriptionInfo(count: 111, information: "currently no info available currently no info available currently no info available currently no info available currently no info available currently no info available currently no info available currently no info available currently no info available")))
-            let product2 = Product(productInfo: ProductInfo(image: "image2", name: "Chips", id: 100, price: "150 rub", deliveryInfo: "30 august", descriptionInfo: DescriptionInfo(count: 111, information: "best snack")))
+            let product = Product(productInfo: ProductInfo(image: "", name: "MilkMilkMilkMilkMilkMilkMilkMilkMilkMilkMilkMilk", id: 100, price: "300 rub", deliveryInfo: "30 august", descriptionInfo: DescriptionInfo(count: 111, information: "currently no info available currently no info available currently no info available currently no info available currently no info available currently no info available currently no info available currently no info available currently no info available")))
+            let product2 = Product(productInfo: ProductInfo(image: "", name: "Chips", id: 100, price: "150 rub", deliveryInfo: "30 august", descriptionInfo: DescriptionInfo(count: 111, information: "best snack")))
+            let product3 = Product(productInfo: ProductInfo(image: "", name: "Tomatoes", id: 100, price: "222 rub", deliveryInfo: "30 august", descriptionInfo: DescriptionInfo(count: 111, information: "Originally tomatoes, from south country. Best taste")))
             products.append(product)
             products.append(product2)
+            products.append(product3)
         }
+    }
+    
+    func updateData() {
+//        self.reloadTableView
     }
 }

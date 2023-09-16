@@ -1,10 +1,13 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    var viewModel: MainViewModel = MainViewModelImp()
+    
     weak var coordinator: AppCoordinator?
+    
+    var viewModel: MainViewModel = MainViewModelImp()
     private let tableView = UITableView()
     var activityIndicator = UIActivityIndicatorView()
+    var refreshCountrol = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -12,6 +15,7 @@ class MainViewController: UIViewController {
         view.backgroundColor = .white
         setupViewModel()
         setupAtivityIndicator()
+        setupRefreshControl()
     }
     
     func setupViewModel() {
@@ -27,7 +31,7 @@ class MainViewController: UIViewController {
         viewModel.hideLoading = {
             DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
         }
-        viewModel.updateData()
+        viewModel.loadData()
     }
     
     // MARK: - SetupTableView
@@ -38,9 +42,11 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         registerCell()
+        tableView.estimatedRowHeight = 500
+        tableView.refreshControl = refreshCountrol
         constraintsTableView()
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 200
+        
+        
     }
     
     private func registerCell() {
@@ -65,6 +71,20 @@ class MainViewController: UIViewController {
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+    }
+    
+    private func setupRefreshControl() {
+        refreshCountrol.addTarget(self, action: #selector(refreshControlAction), for: .valueChanged)
+        refreshCountrol.attributedTitle = NSAttributedString(string: "Потяните для обновления")
+        
+    }
+    
+    @objc private func refreshControlAction() {
+        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
+        }
+        
     }
 }
 

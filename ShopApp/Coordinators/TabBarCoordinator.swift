@@ -98,7 +98,7 @@ class TabBarCoordinator: Coordinator {
     
     private func prepareTabBarController(withTabControllers tabBarControllers: [UIViewController]) {
         tabBarController.setViewControllers(tabBarControllers, animated: true)
-        tabBarController.selectedIndex  = TabBarPage.profile.pageOrderNumber()
+        tabBarController.selectedIndex  = TabBarPage.main.pageOrderNumber()
         tabBarController.tabBar.isTranslucent = false
         tabBarController.tabBar.backgroundColor = .white
         navigationController.viewControllers = [tabBarController]
