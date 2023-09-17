@@ -29,25 +29,26 @@ class MainTableViewCell: UITableViewCell {
         layout()
     }
     
+    // MARKK - Layout
     private func layout() {
         productImageView.frame = CGRect(x: 5, y: 5, width: 100, height: 100)
         
-        let heightProductLabel = UILabel.textHeight(withWidth: contentView.bounds.width - 225,
+        let heightProductLabel = UILabel.textHeight(withWidth: contentView.bounds.width / 2,
                                                     font: productTitleLabel.font,
                                                     text: productTitleLabel.text ?? "")
         
         productTitleLabel.frame = CGRect(x: productImageView.frame.minX + 5,
                                          y: productImageView.frame.maxY + 8,
-                                         width: contentView.bounds.width - 225,
+                                         width: contentView.bounds.width / 3,
                                          height: heightProductLabel)
         
-        let heightPriceLabel = UILabel.textHeight(withWidth: contentView.bounds.width - 225,
+        let heightPriceLabel = UILabel.textHeight(withWidth: contentView.bounds.width / 2,
                                                   font: priceLabel.font,
                                                   text: priceLabel.text ?? "")
         
         priceLabel.frame = CGRect(x: productTitleLabel.frame.minX,
                                   y: productTitleLabel.frame.maxY + 8,
-                                  width: contentView.bounds.width - 225,
+                                  width: contentView.bounds.width / 2,
                                   height: heightPriceLabel)
         
         buyButton.frame = CGRect(x: priceLabel.frame.minX,
@@ -61,11 +62,11 @@ class MainTableViewCell: UITableViewCell {
         
         descriptionProductLabel.frame = CGRect(x: buyButton.frame.minX,
                                                y: buyButton.frame.maxY + 8,
-                                               width: contentView.bounds.width - 225,
+                                               width: contentView.bounds.width / 2,
                                                height: heightDescriptionLabel)
     }
     
-    func configureViews(product: Product) {
+    private func configureViews(product: Product) {
         configureProductTitleLabel(product: product.productInfo.name)
         configurePriceLabel(price: product.productInfo.price)
         configureProductImageView(image: product.productInfo.image)
@@ -73,7 +74,7 @@ class MainTableViewCell: UITableViewCell {
         configureBuyButton(price: product.productInfo.price)
     }
     
-    // MARK: - Private methods
+    // MARK: - Configure UI
     
     private func addViews() {
         contentView.addSubview(productImageView)
@@ -86,10 +87,9 @@ class MainTableViewCell: UITableViewCell {
     private func configureProductImageView(image: String) {
         let randomURL = Int(arc4random_uniform(3))
         DispatchQueue.main.async {
-            self.productImageView.load(url: URL(string: self.constant.urlImages[randomURL])!)
+            guard let url = URL(string: self.constant.urlImages[randomURL]) else { return }
+            self.productImageView.load(url: url)
         }
-
-//        productImageView.image = UIImage(named: image)
         productImageView.contentMode = .scaleAspectFit
         productImageView.clipsToBounds = true
 
@@ -99,20 +99,17 @@ class MainTableViewCell: UITableViewCell {
         productTitleLabel.text = product
         productTitleLabel.numberOfLines = 0
         productTitleLabel.font = UIFont(name: constant.avenirBook, size: 25)
-        productTitleLabel.backgroundColor = .white
     }
     		
     private func configurePriceLabel(price: String) {
         priceLabel.text = price
         priceLabel.font = UIFont(name: constant.avenirBook, size: 20)
-        priceLabel.backgroundColor = .white
     }
     
     private func configureDescriptionLabel(description: String) {
         descriptionProductLabel.text = description
         descriptionProductLabel.numberOfLines = 0
         descriptionProductLabel.font = UIFont(name: constant.avenirBook, size: 15)
-        descriptionProductLabel.backgroundColor = .white
     }
     
     private func configureBuyButton(price: String) {
@@ -121,17 +118,24 @@ class MainTableViewCell: UITableViewCell {
         buyButton.setTitleColor(.black, for: .normal)
         buyButton.setTitleColor(.lightGray, for: .highlighted)
         buyButton.titleLabel?.font = UIFont(name: constant.avenirBook, size: 20)
-        buyButton.backgroundColor = .lightGray
+        buyButton.backgroundColor = .systemCyan
         buyButton.layer.cornerRadius = 10
+        buyButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+    }
+    
+    // MARK: - Button action
+    
+    @objc private func buttonAction() {
+        
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         layout()
-        
         return CGSize(width: contentView.frame.width, height: descriptionProductLabel.frame.maxY + 10)
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         productImageView.image = nil
     }
 }

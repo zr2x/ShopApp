@@ -45,22 +45,18 @@ extension UILabel {
     }
 
     class func countLines(font: UIFont, text: String, width: CGFloat, height: CGFloat = .greatestFiniteMagnitude) -> Int {
-        // Call self.layoutIfNeeded() if your view uses auto layout
         let myText = text as NSString
-
         let rect = CGSize(width: width, height: height)
         let labelSize = myText.boundingRect(with: rect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-
+        
         return Int(ceil(CGFloat(labelSize.height) / font.lineHeight))
     }
 
     func countLines(width: CGFloat = .greatestFiniteMagnitude, height: CGFloat = .greatestFiniteMagnitude) -> Int {
-        // Call self.layoutIfNeeded() if your view uses auto layout
         let myText = (self.text ?? "") as NSString
-
         let rect = CGSize(width: width, height: height)
         let labelSize = myText.boundingRect(with: rect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font], context: nil)
-
+        
         return Int(ceil(CGFloat(labelSize.height) / self.font.lineHeight))
     }
 }

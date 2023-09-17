@@ -24,7 +24,6 @@ class MainCoordinator: MainCoordinatorProtocol {
     
     func showMainViewController() {
         let mainVC = MainViewController()
-
         navigationController.pushViewController(mainVC, animated: true)
     }
     

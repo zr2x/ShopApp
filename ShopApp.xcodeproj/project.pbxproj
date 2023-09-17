@@ -33,6 +33,7 @@
 		C0DA16312AB44A8300FFF732 /* ImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA16302AB44A8300FFF732 /* ImagesModel.swift */; };
 		C0DA16332AB44AA600FFF732 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA16322AB44AA600FFF732 /* NetworkClient.swift */; };
 		C0DA16352AB44C1B00FFF732 /* NetworkMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA16342AB44C1B00FFF732 /* NetworkMapper.swift */; };
+		C0DA16372AB710CA00FFF732 /* NetworkBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA16362AB710CA00FFF732 /* NetworkBuilder.swift */; };
 		C726A442AFD011FB0A3B2417 /* Pods_ShopApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84946356C5D44C096CCD806D /* Pods_ShopApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		C0DA16302AB44A8300FFF732 /* ImagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesModel.swift; sourceTree = "<group>"; };
 		C0DA16322AB44AA600FFF732 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		C0DA16342AB44C1B00FFF732 /* NetworkMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMapper.swift; sourceTree = "<group>"; };
+		C0DA16362AB710CA00FFF732 /* NetworkBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 				C0DA16302AB44A8300FFF732 /* ImagesModel.swift */,
 				C0DA16322AB44AA600FFF732 /* NetworkClient.swift */,
 				C0DA16342AB44C1B00FFF732 /* NetworkMapper.swift */,
+				C0DA16362AB710CA00FFF732 /* NetworkBuilder.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				C0DA160D2AA9AD7300FFF732 /* MainCoordinator.swift in Sources */,
 				C06FB4462AA0CCFF00ADB7C9 /* ApiClient.swift in Sources */,
 				C0DA16312AB44A8300FFF732 /* ImagesModel.swift in Sources */,
+				C0DA16372AB710CA00FFF732 /* NetworkBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

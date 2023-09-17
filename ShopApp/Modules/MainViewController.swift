@@ -4,10 +4,10 @@ class MainViewController: UIViewController {
     
     weak var coordinator: AppCoordinator?
     
-    var viewModel: MainViewModel = MainViewModelImp()
+    private var viewModel: MainViewModel = MainViewModelImp()
     private let tableView = UITableView()
-    var activityIndicator = UIActivityIndicatorView()
-    var refreshCountrol = UIRefreshControl()
+    private var activityIndicator = UIActivityIndicatorView()
+    private var refreshCountrol = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +45,6 @@ class MainViewController: UIViewController {
         tableView.estimatedRowHeight = 500
         tableView.refreshControl = refreshCountrol
         constraintsTableView()
-        
-        
     }
     
     private func registerCell() {
@@ -84,7 +82,6 @@ class MainViewController: UIViewController {
         DispatchQueue.main.async {
             self.tableView.refreshControl?.endRefreshing()
         }
-        
     }
 }
 

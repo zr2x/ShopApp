@@ -12,10 +12,12 @@ enum NetworkError: Error {
 }
 
 protocol NetworkClient {
-    func fetchImages(completion: @escaping (Result<[ImagesModel], NetworkError>) -> Void)
+    associatedtype ResponseType: Decodable
+    func fetchImages(completion: @escaping (Result<ResponseType, NetworkError>) -> Void)
 }
 
 class NetworkClientImp: NetworkClient {
+    typealias ResponseType = [ImagesModel]
     
     private let mapper: NetworkMapper
     

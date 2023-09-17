@@ -7,7 +7,6 @@ protocol MainViewModel {
     var hideLoading: (() -> Void)? { get set }
     
     func loadData()
-    func updateData()
 }
 
 class MainViewModelImp: MainViewModel {
@@ -37,7 +36,6 @@ class MainViewModelImp: MainViewModel {
                 print("Error")
             }
         }
-
     }
     
     // FIXME: Test func
@@ -50,9 +48,5 @@ class MainViewModelImp: MainViewModel {
             products.append(product2)
             products.append(product3)
         }
-    }
-    
-    func updateData() {
-//        self.reloadTableView
     }
 }
