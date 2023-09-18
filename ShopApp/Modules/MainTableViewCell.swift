@@ -11,7 +11,10 @@ class MainTableViewCell: UITableViewCell {
     private var priceLabel = UILabel()
     private var buyButton = UIButton()
     private var descriptionProductLabel = UILabel()
+    
+    // MARK: - Constants
     private let constant = Constant()
+    private let urlComponents = URLComponents()
     
         
     // MARK: - Init
@@ -66,7 +69,7 @@ class MainTableViewCell: UITableViewCell {
                                                height: heightDescriptionLabel)
     }
     
-    private func configureViews(product: Product) {
+    func configureViews(product: Product) {
         configureProductTitleLabel(product: product.productInfo.name)
         configurePriceLabel(price: product.productInfo.price)
         configureProductImageView(image: product.productInfo.image)

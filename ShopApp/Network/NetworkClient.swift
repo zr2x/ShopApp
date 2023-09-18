@@ -20,13 +20,14 @@ class NetworkClientImp: NetworkClient {
     typealias ResponseType = [ImagesModel]
     
     private let mapper: NetworkMapper
+    private let urlComponents = URLComponents()
     
     init(mapper: NetworkMapper) {
         self.mapper = mapper
     }
     
     func fetchImages(completion: @escaping (Result<[ImagesModel], NetworkError>) -> Void) {
-        guard let url = URL(string: "https://api.unsplash.com/photos/?client_id=Ex-lIJXsI3n-yGeyV1jCJ0Mm_pysLRYz0PRa4srNXY0") else { completion(.failure(.badURL))
+        guard let url = URL(string: urlComponents.scheme + urlComponents.api + urlComponents.accessKey) else { completion(.failure(.badURL))
             return }
         
         URLSession.shared.dataTask(with: url) { [weak self] data, response, error in

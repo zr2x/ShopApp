@@ -7,7 +7,14 @@
 
 import Foundation
 
-class NetworkMapper {
+protocol NetworkMapperProtocol {
+    associatedtype ResponseType
+    func mapResponse(data: Data) -> [ResponseType]
+}
+
+class NetworkMapper: NetworkMapperProtocol {
+    
+    typealias ResponseType = ImagesModel
     
     func mapResponse(data: Data) -> [ImagesModel] {
         let imagesModel = try? JSONDecoder().decode([ImagesModel].self, from: data)

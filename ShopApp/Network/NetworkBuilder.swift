@@ -12,7 +12,7 @@ struct URLComponents {
     
     let scheme = "https://"
     
-    let api = "api.unsplash.com/photos/?client_id=Y"
+    let api = "api.unsplash.com/photos/?client_id="
     
     let accessKey = "uYHSgLN_qOeVTaNiZsqcAuxiT4EIN9LujLR8xlIkQw4"
 }

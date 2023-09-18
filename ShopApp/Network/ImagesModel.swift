@@ -13,7 +13,7 @@ struct ImagesModel: Decodable {
     let width: Int
     let height: Int
     let user: User
-    let urls: Urls
+    let urls: ImageSize
 }
 
 //MARK: User
@@ -24,7 +24,7 @@ struct User: Decodable {
 }
 
 // MARK: - Urls
-struct Urls: Codable {
+struct ImageSize: Codable {
     let raw, full, regular, small: String
     let thumb, smallS3: String
 
