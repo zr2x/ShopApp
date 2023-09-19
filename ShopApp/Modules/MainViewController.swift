@@ -1,10 +1,13 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    var viewModel: MainViewModel = MainViewModelImp()
-    weak var coordinator: AppCoordinator?
+    
+    weak var coordinator: MainCoordinator?
+    
+    private var viewModel: MainViewModel = MainViewModelImp()
     private let tableView = UITableView()
-    var activityIndicator = UIActivityIndicatorView()
+    private var activityIndicator = UIActivityIndicatorView()
+    private var refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -12,6 +15,7 @@ class MainViewController: UIViewController {
         view.backgroundColor = .white
         setupViewModel()
         setupAtivityIndicator()
+        setupRefreshControl()
     }
     
     func setupViewModel() {
@@ -27,7 +31,7 @@ class MainViewController: UIViewController {
         viewModel.hideLoading = {
             DispatchQueue.main.async { self.activityIndicator.stopAnimating() }
         }
-        viewModel.updateData()
+        viewModel.loadData()
     }
     
     // MARK: - SetupTableView
@@ -38,9 +42,9 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         registerCell()
+        tableView.estimatedRowHeight = 500
+        tableView.refreshControl = refreshControl
         constraintsTableView()
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 200
     }
     
     private func registerCell() {
@@ -66,6 +70,19 @@ class MainViewController: UIViewController {
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
+    
+    private func setupRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(refreshControlAction), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "Потяните для обновления")
+        
+    }
+    
+    @objc private func refreshControlAction() {
+        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -88,5 +105,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return  UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        false
     }
 }

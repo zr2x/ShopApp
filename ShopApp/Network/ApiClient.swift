@@ -12,6 +12,4 @@ public struct ApiClient {
             complete(true, products)
         }
     }
-    
-
 }

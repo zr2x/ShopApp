@@ -18,13 +18,12 @@ class AppCoordinator: Coordinator {
         mainCoordinator.finishDelegate = self
         mainCoordinator.start()
         childCoordinators.append(mainCoordinator)
-        
     }
     
     func startTabBarFlow() {
 //        let splashCoordinator = SplashCoordinator(navigationController)
 //        splashCoordinator.finishDelegate = self
-//        splashCoordinator.start()
+//        splashCoordinator.startSplashFlow()
 //        childCoordinators.append(splashCoordinator)
         let tabBarCoordinator = TabBarCoordinator(navigationController)
         tabBarCoordinator.finishDelegate = self

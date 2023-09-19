@@ -11,6 +11,9 @@ import Lottie
 
 final class SplashViewController: UIViewController {
     
+    // MARK: - Variable
+    
+    weak var splashCoordinator: SplashCoordinator?
     private var animationView = LottieAnimationView()
     
     // MARK: - Lifecycle
@@ -23,25 +26,23 @@ final class SplashViewController: UIViewController {
     }
     
     
-    // MARK: - Start app
-    private func startMainFlow() {
-        let mainVC = MainViewController()
-        mainVC.modalPresentationStyle = .overFullScreen
-        navigationController?.pushViewController(mainVC, animated: true)
-    }
+    // MARK: - Start splash
     
     private func startSplash() {
         view.addSubview(animationView)
         animationView.play(toProgress: 1, loopMode: .playOnce) { finished in
             if finished {
-                self.startMainFlow()
+                self.splashCoordinator?.start()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now()) {
                     self.animationView.stop()
+                    
                 }
             }
         }
     }
+    
+    // MARK: - Setup views
     
     private func setupAnimation() {
         view.addSubview(animationView)

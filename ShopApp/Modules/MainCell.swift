@@ -12,10 +12,11 @@ class MainTableViewCell: UITableViewCell {
     private var buyButton = UIButton()
     private var descriptionProductLabel = UILabel()
     
-    // MARK: - Properties
-    
+    // MARK: - Constants
     private let constant = Constant()
+    private let urlComponents = URLComponents()
     
+        
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -31,6 +32,7 @@ class MainTableViewCell: UITableViewCell {
         layout()
     }
     
+    // MARKK - Layout
     private func layout() {
         productImageView.frame = CGRect(x: 5, y: 5, width: 100, height: 100)
         
@@ -40,7 +42,7 @@ class MainTableViewCell: UITableViewCell {
         
         productTitleLabel.frame = CGRect(x: productImageView.frame.minX + 5,
                                          y: productImageView.frame.maxY + 8,
-                                         width: contentView.bounds.width / 2,
+                                         width: contentView.bounds.width / 3,
                                          height: heightProductLabel)
         
         let heightPriceLabel = UILabel.textHeight(withWidth: contentView.bounds.width / 2,
@@ -57,14 +59,14 @@ class MainTableViewCell: UITableViewCell {
                                  width: priceLabel.frame.width,
                                  height: productImageView.frame.height / 5 + 5)
         
-        let height = UILabel.textHeight(withWidth: descriptionProductLabel.frame.width,
+        let heightDescriptionLabel = UILabel.textHeight(withWidth: descriptionProductLabel.frame.width,
                                         font: descriptionProductLabel.font,
                                         text: descriptionProductLabel.text ?? "")
         
         descriptionProductLabel.frame = CGRect(x: buyButton.frame.minX,
                                                y: buyButton.frame.maxY + 8,
                                                width: contentView.bounds.width / 2,
-                                               height: height)
+                                               height: heightDescriptionLabel)
     }
     
     func configureViews(product: Product) {
@@ -75,7 +77,7 @@ class MainTableViewCell: UITableViewCell {
         configureBuyButton(price: product.productInfo.price)
     }
     
-    // MARK: - Private methods
+    // MARK: - Configure UI
     
     private func addViews() {
         contentView.addSubview(productImageView)
@@ -86,10 +88,14 @@ class MainTableViewCell: UITableViewCell {
     }
     
     private func configureProductImageView(image: String) {
-        productImageView.image = UIImage(named: image)
+        let randomURL = Int(arc4random_uniform(3))
+        DispatchQueue.main.async {
+            guard let url = URL(string: self.constant.urlImages[randomURL]) else { return }
+            self.productImageView.load(url: url)
+        }
         productImageView.contentMode = .scaleAspectFit
         productImageView.clipsToBounds = true
-        productImageView.layer.cornerRadius = 10
+
     }
     
     private func configureProductTitleLabel(product: String) {
@@ -113,14 +119,26 @@ class MainTableViewCell: UITableViewCell {
         buyButton.setTitle("В корзину", for: .normal)
         buyButton.setTitle("Убрать из корзины", for: .highlighted)
         buyButton.setTitleColor(.black, for: .normal)
+        buyButton.setTitleColor(.lightGray, for: .highlighted)
         buyButton.titleLabel?.font = UIFont(name: constant.avenirBook, size: 20)
-        buyButton.backgroundColor = .lightGray
+        buyButton.backgroundColor = .systemCyan
         buyButton.layer.cornerRadius = 10
+        buyButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+    }
+    
+    // MARK: - Button action
+    
+    @objc private func buttonAction() {
+        
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         layout()
-        
         return CGSize(width: contentView.frame.width, height: descriptionProductLabel.frame.maxY + 10)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        productImageView.image = nil
     }
 }

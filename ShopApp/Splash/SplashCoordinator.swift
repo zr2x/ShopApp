@@ -18,19 +18,22 @@ class SplashCoordinator: Coordinator {
     var type: CoordinatorType { .main }
     
     func start() {
+        let tabBarCoordinator = TabBarCoordinator(navigationController)
+        tabBarCoordinator.start()
+    }
+    
+    func startSplashFlow() {
         let splashVC = SplashViewController()
         navigationController.pushViewController(splashVC, animated: true)
     }
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
-        
     }
 }
 
 extension SplashCoordinator {
-    func didCompleteSplashScreen() {
-        
+    func didCompleteSplashScreen() { 
     }
     
     private func startTabBarCoordinator() {
