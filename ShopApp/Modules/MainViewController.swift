@@ -2,12 +2,12 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    weak var coordinator: AppCoordinator?
+    weak var coordinator: MainCoordinator?
     
     private var viewModel: MainViewModel = MainViewModelImp()
     private let tableView = UITableView()
     private var activityIndicator = UIActivityIndicatorView()
-    private var refreshCountrol = UIRefreshControl()
+    private var refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,7 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         registerCell()
         tableView.estimatedRowHeight = 500
-        tableView.refreshControl = refreshCountrol
+        tableView.refreshControl = refreshControl
         constraintsTableView()
     }
     
@@ -72,8 +72,8 @@ class MainViewController: UIViewController {
     }
     
     private func setupRefreshControl() {
-        refreshCountrol.addTarget(self, action: #selector(refreshControlAction), for: .valueChanged)
-        refreshCountrol.attributedTitle = NSAttributedString(string: "Потяните для обновления")
+        refreshControl.addTarget(self, action: #selector(refreshControlAction), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "Потяните для обновления")
         
     }
     

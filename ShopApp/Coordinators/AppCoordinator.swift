@@ -18,7 +18,6 @@ class AppCoordinator: Coordinator {
         mainCoordinator.finishDelegate = self
         mainCoordinator.start()
         childCoordinators.append(mainCoordinator)
-        
     }
     
     func startTabBarFlow() {
